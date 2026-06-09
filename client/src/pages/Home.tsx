@@ -242,38 +242,44 @@ export default function Home() {
         <div className="container relative z-10">
           {/* Opening Message */}
           <div className="reveal mb-16 max-w-3xl">
-            <div className="glass-card p-8 md:p-12 rounded-2xl border border-[#00D8FF]/20 backdrop-blur-xl">
-              {lang === 'ar' ? (
-                <div className="space-y-6 text-right" dir="rtl">
-                  <p className="text-lg md:text-xl text-white/80 leading-relaxed font-light">
-                    في لحظةٍ ما، يجد الإنسان نفسه بعيداً عن كل ما يعرفه؛ وطنه، لغته، وأشخاصه. وبين الخوف من المجهول والحاجة إلى بداية جديدة، يصبح الوصول إلى المعلومة والدعم أمراً لا يقل أهمية عن الوصول إلى الأمان.
-                  </p>
-                  <p className="text-xl md:text-2xl text-[#00D8FF] font-bold">
-                    هنا يأتي <span className="text-white">جِسر</span>.
-                  </p>
-                  <p className="text-lg md:text-xl text-white/80 leading-relaxed font-light">
-                    منصة صُممت لتكون أكثر من مجرد مصدر للمعلومات؛ مجتمعاً يمنح الثقة، ومعرفةً تضيء الطريق، وصوتاً يقول لكل وافد جديد: <span className="text-[#00D8FF] font-semibold">لست وحدك</span>. لأننا نؤمن أن كل إنسان يستحق فرصة عادلة ليبدأ من جديد بكرامة وأمل وانتماء.
-                  </p>
-                  <p className="text-lg md:text-xl text-[#F28C38] font-semibold italic">
-                    جِسر… لأن الرحلة أصعب عندما تعبر
-                  </p>
-                </div>
-              ) : (
-                <div className="space-y-6 text-left">
-                  <p className="text-lg md:text-xl text-white/80 leading-relaxed font-light">
-                    At some point, a person finds themselves far from everything they know; their homeland, their language, their people. Between the fear of the unknown and the need for a new beginning, access to information and support becomes as vital as access to safety.
-                  </p>
-                  <p className="text-xl md:text-2xl text-[#00D8FF] font-bold">
-                    This is where <span className="text-white">Jisr</span> comes in.
-                  </p>
-                  <p className="text-lg md:text-xl text-white/80 leading-relaxed font-light">
-                    A platform designed to be more than just a source of information; a community that builds trust, knowledge that lights the way, and a voice that tells every newcomer: <span className="text-[#00D8FF] font-semibold">you are not alone</span>. Because we believe every person deserves a fair chance to start anew with dignity, hope, and belonging.
-                  </p>
-                  <p className="text-lg md:text-xl text-[#F28C38] font-semibold italic">
-                    Jisr… because the journey is harder when you cross alone
-                  </p>
-                </div>
-              )}
+            <div className="glass-card p-8 md:p-12 rounded-2xl border border-[#00D8FF]/20 backdrop-blur-xl hover:border-[#00D8FF]/40 transition-all duration-500 hover:shadow-lg hover:shadow-[#00D8FF]/10 relative group overflow-hidden">
+              {/* Decorative gradient backgrounds */}
+              <div className="absolute -top-1 -left-1 w-20 h-20 bg-gradient-to-br from-[#00D8FF]/10 to-transparent rounded-full blur-2xl group-hover:from-[#00D8FF]/20 transition-all duration-500" />
+              <div className="absolute -bottom-1 -right-1 w-20 h-20 bg-gradient-to-tl from-[#F28C38]/10 to-transparent rounded-full blur-2xl group-hover:from-[#F28C38]/20 transition-all duration-500" />
+              
+              <div className="relative z-10">
+                {lang === 'ar' ? (
+                  <div className="space-y-6 text-right" dir="rtl">
+                    <p className="text-lg md:text-xl text-white/80 leading-relaxed font-light transition-all duration-500 hover:text-white/90">
+                      {t.opening.line1}
+                    </p>
+                    <p className="text-2xl md:text-3xl text-[#00D8FF] font-bold hover:text-[#00A8CC] transition-colors duration-300">
+                      هنا يأتي <span className="text-white">جِسر</span>.
+                    </p>
+                    <p className="text-lg md:text-xl text-white/80 leading-relaxed font-light transition-all duration-500 hover:text-white/90">
+                      {t.opening.line3}
+                    </p>
+                    <p className="text-lg md:text-xl text-[#F28C38] font-semibold italic hover:text-[#FFB347] transition-colors duration-300">
+                      {t.opening.line4}
+                    </p>
+                  </div>
+                ) : (
+                  <div className="space-y-6 text-left">
+                    <p className="text-lg md:text-xl text-white/80 leading-relaxed font-light transition-all duration-500 hover:text-white/90">
+                      {t.opening.line1}
+                    </p>
+                    <p className="text-2xl md:text-3xl text-[#00D8FF] font-bold hover:text-[#00A8CC] transition-colors duration-300">
+                      This is where <span className="text-white">Jisr</span> comes in.
+                    </p>
+                    <p className="text-lg md:text-xl text-white/80 leading-relaxed font-light transition-all duration-500 hover:text-white/90">
+                      {t.opening.line3}
+                    </p>
+                    <p className="text-lg md:text-xl text-[#F28C38] font-semibold italic hover:text-[#FFB347] transition-colors duration-300">
+                      {t.opening.line4}
+                    </p>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
 

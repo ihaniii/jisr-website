@@ -13,6 +13,7 @@ export const LANGUAGES: { code: Lang; label: string; flag: string; dir: "ltr" | 
 
 export type Translations = {
   nav: { features: string; countries: string; community: string; tools: string; download: string };
+  opening: { line1: string; line2: string; line3: string; line4: string };
   hero: { badge: string; title1: string; title2: string; desc: string; descAr: string; cta1: string; cta2: string; stat1: string; stat2: string; stat3: string };
   features: { badge: string; title: string; desc: string; items: { asylum: string; map: string; groups: string; stories: string; ai: string; cv: string; events: string; mentorship: string; glossary: string; interview: string; banking: string; calculator: string; quiz: string; messages: string; marketplace: string; orgs: string; news: string; flatshare: string; points: string; support: string; document: string } };
   countries: { badge: string; title: string; desc: string; f1: string; f2: string; f3: string; f4: string };
@@ -34,6 +35,12 @@ export const translations = {
       community: "Community",
       tools: "Tools",
       download: "Download",
+    },
+    opening: {
+      line1: "At some point, a person finds themselves far from everything they know; their homeland, their language, their people. Between the fear of the unknown and the need for a new beginning, access to information and support becomes as vital as access to safety.",
+      line2: "This is where Jisr comes in.",
+      line3: "A platform designed to be more than just a source of information; a community that builds trust, knowledge that lights the way, and a voice that tells every newcomer: you are not alone. Because we believe every person deserves a fair chance to start anew with dignity, hope, and belonging.",
+      line4: "Jisr… because the journey is harder when you cross alone",
     },
     hero: {
       badge: "Connecting Hearts, Building Futures",
@@ -167,6 +174,12 @@ export const translations = {
       tools: "الأدوات",
       download: "تحميل",
     },
+    opening: {
+      line1: "في لحظةٍ ما، يجد الإنسان نفسه بعيداً عن كل ما يعرفه؛ وطنه، لغته، وأشخاصه. وبين الخوف من المجهول والحاجة إلى بداية جديدة، يصبح الوصول إلى المعلومة والدعم أمراً لا يقل أهمية عن الوصول إلى الأمان.",
+      line2: "هنا يأتي جِسر.",
+      line3: "منصة صُممت لتكون أكثر من مجرد مصدر للمعلومات؛ مجتمعاً يمنح الثقة، ومعرفةً تضيء الطريق، وصوتاً يقول لكل وافد جديد: لست وحدك. لأننا نؤمن أن كل إنسان يستحق فرصة عادلة ليبدأ من جديد بكرامة وأمل وانتماء.",
+      line4: "جِسر… لأن الرحلة أصعب عندما تعبر",
+    },
     hero: {
       badge: "نربط القلوب ونبني المستقبل",
       title1: "جسرك نحو",
@@ -298,6 +311,12 @@ export const translations = {
       community: "Gemenskap",
       tools: "Verktyg",
       download: "Ladda ner",
+    },
+    opening: {
+      line1: "Någon gång befinner sig en person långt från allt de känner; sitt hemland, sitt språk, sina människor. Mellan rädslan för det okända och behovet av en ny början blir tillgången till information och stöd lika vital som tillgången till säkerhet.",
+      line2: "Det är här Jisr kommer in.",
+      line3: "En plattform utformad för att vara mer än bara en informationskälla; en gemenskap som bygger förtroende, kunskap som lyser vägen, och en röst som säger till varje nykomling: du är inte ensam. För vi tror att varje människa förtjänar en rättvis chans att börja på nytt med värdighet, hopp och tillhörighet.",
+      line4: "Jisr… för resan är svårare när du är ensam",
     },
     hero: {
       badge: "Förenar hjärtan, bygger framtider",
@@ -431,6 +450,12 @@ export const translations = {
       tools: "Werkzeuge",
       download: "Herunterladen",
     },
+    opening: {
+      line1: "Irgendwann findet sich eine Person weit weg von allem, was sie kennt; ihrer Heimat, ihrer Sprache, ihren Menschen. Zwischen der Angst vor dem Unbekannten und dem Bedarf nach einem Neuanfang wird der Zugang zu Informationen und Unterstützung genauso lebenswichtig wie der Zugang zu Sicherheit.",
+      line2: "Hier kommt Jisr ins Spiel.",
+      line3: "Eine Plattform, die mehr als nur eine Informationsquelle sein soll; eine Gemeinschaft, die Vertrauen aufbaut, Wissen, das den Weg erleuchtet, und eine Stimme, die jedem Neuankömmling sagt: Du bist nicht allein. Denn wir glauben, dass jeder Mensch eine faire Chance verdient, um mit Würde, Hoffnung und Zugehörigkeit neu anzufangen.",
+      line4: "Jisr… weil die Reise schwerer ist, wenn du allein gehst",
+    },
     hero: {
       badge: "Herzen verbinden, Zukunft bauen",
       title1: "Deine Brücke zu einem",
@@ -562,6 +587,12 @@ export const translations = {
       community: "Gemeenschap",
       tools: "Tools",
       download: "Downloaden",
+    },
+    opening: {
+      line1: "Op een gegeven moment bevinden mensen zich ver weg van alles wat ze kennen; hun thuisland, hun taal, hun mensen. Tussen de angst voor het onbekende en de behoefte aan een nieuw begin wordt toegang tot informatie en ondersteuning net zo essentieel als toegang tot veiligheid.",
+      line2: "Hier komt Jisr om de hoek.",
+      line3: "Een platform dat meer is dan alleen een informatiebron; een gemeenschap die vertrouwen opbouwt, kennis die de weg verlicht, en een stem die elke nieuwkomer zegt: je bent niet alleen. Want we geloven dat iedereen een eerlijke kans verdient om opnieuw te beginnen met waardigheid, hoop en belonging.",
+      line4: "Jisr… omdat de reis moeilijker is als je alleen bent",
     },
     hero: {
       badge: "Harten verbinden, toekomst bouwen",
@@ -695,6 +726,12 @@ export const translations = {
       tools: "Outils",
       download: "Télécharger",
     },
+    opening: {
+      line1: "Un jour, une personne se retrouve loin de tout ce qu'elle connaît ; sa patrie, sa langue, ses proches. Entre la peur de l'inconnu et le besoin d'un nouveau départ, l'accès à l'information et au soutien devient aussi vital que l'accès à la sécurité.",
+      line2: "C'est là que Jisr intervient.",
+      line3: "Une plateforme conçue pour être bien plus qu'une simple source d'information ; une communauté qui génère la confiance, une connaissance qui éclaire le chemin, et une voix qui dit à chaque nouveau venu : tu n'es pas seul. Parce que nous croyons que chacun mérite une chance équitable de recommencer avec dignité, espoir et appartenance.",
+      line4: "Jisr… parce que le voyage est plus difficile quand on est seul",
+    },
     hero: {
       badge: "Relier les cœurs, construire l'avenir",
       title1: "Votre pont vers un",
@@ -827,6 +864,12 @@ export const translations = {
       tools: "Verktøy",
       download: "Last ned",
     },
+    opening: {
+      line1: "En dag befinner en person seg langt fra alt de kjenner; sitt hjemland, sitt språk, sine mennesker. Mellom frykten for det ukjente og behovet for en ny begynnelse blir tilgang til informasjon og støtte like vital som tilgang til sikkerhet.",
+      line2: "Det er her Jisr kommer inn.",
+      line3: "En plattform designet for å være mer enn bare en informasjonskilde; et fellesskap som bygger tillit, kunnskap som lyser veien, og en røst som sier til hver nyankommet: du er ikke alene. Fordi vi tror at hver person fortjener en rettferdig sjanse til å begynne på nytt med verdighet, håp og tilhørighet.",
+      line4: "Jisr… fordi reisen er vanskeligere når du er alene",
+    },
     hero: {
       badge: "Forbinder hjerter, bygger fremtider",
       title1: "Din bro til en",
@@ -958,6 +1001,12 @@ export const translations = {
       community: "Fællesskab",
       tools: "Værktøjer",
       download: "Download",
+    },
+    opening: {
+      line1: "En dag befinder en person sig langt fra alt, hvad de kender; deres hjemland, deres sprog, deres mennesker. Mellem frygten for det ukendte og behovet for en ny begyndelse bliver adgang til information og støtte lige så vital som adgang til sikkerhed.",
+      line2: "Det er her Jisr kommer ind.",
+      line3: "En platform designet til at være mere end blot en informationskilde; et fællesskab, der opbygger tillid, viden, der belyser vejen, og en røst, der siger til hver nyankommet: du er ikke alene. Fordi vi tror, at hver person fortjener en fair chance til at starte forfra med værdighed, håb og tilhørighed.",
+      line4: "Jisr… fordi rejsen er sværere, når du er alene",
     },
     hero: {
       badge: "Forbinder hjerter, bygger fremtider",
