@@ -33,9 +33,9 @@ const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663071042274/bgxCV
 // App screenshots (uploaded)
 const SCREENSHOTS = {
   onboarding: "/manus-storage/ScreenshotiPhone17ProMax06-09-2026at9.49.36PM_39491679.webp",
-  home: "/manus-storage/ScreenshotiPhone17ProMax06-09-2026at9.50.10PM_86c928e5.webp",
-  homeHero: "/manus-storage/ScreenshotiPhone17ProMax06-09-2026at9.49.51PM_4f05e4dc.webp",
-  countries: "/manus-storage/ScreenshotiPhone17ProMax06-09-2026at9.49.56PM_4ec03c3c.webp",
+  home: "/manus-storage/ScreenshotiPhone17ProMax06-09-2026at9.49.51PM_4f05e4dc.webp",
+  homeHero: "/manus-storage/ScreenshotiPhone17ProMax06-09-2026at9.49.56PM_4ec03c3c.webp",
+  countries: "/manus-storage/ScreenshotiPhone17ProMax06-09-2026at9.50.10PM_86c928e5.webp",
   countryDetail: "/manus-storage/ScreenshotiPhone17ProMax06-09-2026at9.50.17PM_24ec3e67.webp",
   stories: "/manus-storage/ScreenshotiPhone17ProMax06-09-2026at9.51.27PM_f32c3489.webp",
   groups: "/manus-storage/ScreenshotiPhone17ProMax06-09-2026at9.51.59PM_71c673c5.webp",
