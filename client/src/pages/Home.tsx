@@ -93,7 +93,7 @@ export default function Home() {
       >
         <div className="container flex items-center justify-between h-16 md:h-20">
           <div className="flex items-center gap-2.5">
-            <img src={APP_LOGO} alt="Jisr logo" className="w-10 h-10 rounded-xl shadow-lg shadow-[#00D8FF]/20" />
+            <img src={APP_LOGO} alt="Jisr logo" className="w-10 h-10 shadow-lg shadow-[#00D8FF]/20" />
             <span className="text-xl font-bold text-foreground">Jisr</span>
           </div>
 
@@ -488,7 +488,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
             <div className="md:col-span-2">
               <div className="flex items-center gap-2.5 mb-4">
-                <img src={APP_LOGO} alt="Jisr logo" className="w-9 h-9 rounded-lg" />
+                <img src={APP_LOGO} alt="Jisr logo" className="w-9 h-9" />
                 <span className="text-lg font-bold text-white">Jisr</span>
               </div>
               <p className="text-muted-foreground text-sm leading-relaxed max-w-sm">
