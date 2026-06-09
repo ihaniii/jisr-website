@@ -20,8 +20,9 @@ export type Translations = {
   resources: { badge: string; title: string; desc: string; f1: string; f2: string; f3: string; f4: string };
   tools: { badge: string; title: string; desc: string; f1: string; f2: string; f3: string; f4: string };
   more: { badge: string; title: string; desc: string; f1: string; f2: string; f3: string; f4: string };
-  download: { badge: string; title: string; desc: string; descAr: string; appStore: string; appStoreLabel: string; googlePlay: string; googlePlayLabel: string };
+  download: { badge: string; title: string; desc: string; descAr: string; appStore: string; appStoreLabel: string; googlePlay: string; googlePlayLabel: string; comingSoon: string };
   mission: { badge: string; title: string; desc1: string; desc2: string; free: string; privacy: string; bilingual: string };
+  legal: { disclaimer: string };
   footer: { tagline: string; features: string; legal: string; asylumInfo: string; resourceMap: string; communityStories: string; aiAssistant: string; cvBuilder: string; privacyPolicy: string; terms: string; disclaimer: string; contact: string; copyright: string };
 };
 
@@ -115,6 +116,7 @@ export const translations = {
       appStoreLabel: "Download on the",
       googlePlay: "Google Play",
       googlePlayLabel: "Get it on",
+      comingSoon: "Coming Soon",
     },
     mission: {
       badge: "Our Mission",
@@ -138,7 +140,10 @@ export const translations = {
       terms: "Terms of Service",
       disclaimer: "Disclaimer",
       contact: "Contact Us",
-      copyright: "All rights reserved. This app does not facilitate illegal border crossings or irregular migration.",
+      copyright: "All rights reserved. This app provides informational resources only. It does not facilitate, encourage, or assist illegal border crossings or irregular migration. All information is for educational and guidance purposes within legal frameworks.",
+    },
+    legal: {
+      disclaimer: "Jisr is an informational platform only. It does not provide legal advice, facilitate illegal border crossings, or encourage irregular migration. Users should consult qualified legal professionals for specific legal matters. All content is for educational purposes within applicable legal frameworks.",
     },
   },
   ar: {
@@ -230,6 +235,7 @@ export const translations = {
       appStoreLabel: "حمّل من",
       googlePlay: "Google Play",
       googlePlayLabel: "احصل عليه من",
+      comingSoon: "قريباً",
     },
     mission: {
       badge: "مهمتنا",
@@ -253,7 +259,10 @@ export const translations = {
       terms: "شروط الخدمة",
       disclaimer: "إخلاء المسؤولية",
       contact: "اتصل بنا",
-      copyright: "جميع الحقوق محفوظة. هذا التطبيق لا يسهّل عبور الحدود غير القانوني أو الهجرة غير النظامية.",
+      copyright: "جميع الحقوق محفوظة. هذا التطبيق يوفر موارد معلوماتية فقط. لا يسهّل أو يشجع أو يساعد في عبور الحدود غير القانوني أو الهجرة غير النظامية. جميع المعلومات لأغراض تعليمية وإرشادية ضمن الأطر القانونية.",
+    },
+    legal: {
+      disclaimer: "جسر منصة معلوماتية فقط. لا تقدم استشارات قانونية ولا تسهّل عبور الحدود غير القانوني أو تشجع الهجرة غير النظامية. يجب على المستخدمين استشارة متخصصين قانونيين مؤهلين. جميع المحتوى لأغراض تعليمية ضمن الأطر القانونية المعمول بها.",
     },
   },
   sv: {
@@ -345,6 +354,7 @@ export const translations = {
       appStoreLabel: "Ladda ner från",
       googlePlay: "Google Play",
       googlePlayLabel: "Hämta på",
+      comingSoon: "Kommer snart",
     },
     mission: {
       badge: "Vårt uppdrag",
@@ -368,7 +378,10 @@ export const translations = {
       terms: "Användarvillkor",
       disclaimer: "Ansvarsfriskrivning",
       contact: "Kontakta oss",
-      copyright: "Alla rättigheter förbehållna. Denna app underlättar inte illegal gränsövergång eller irreguljär migration.",
+      copyright: "Alla rättigheter förbehållna. Denna app tillhandahåller enbart informationsresurser. Den underlättar inte, uppmuntrar inte eller bistår inte med illegala gränsövergångar eller irreguljär migration.",
+    },
+    legal: {
+      disclaimer: "Jisr är en informationsplattform. Den ger inte juridisk rådgivning, underlättar inte illegala gränsövergångar eller uppmuntrar irreguljär migration. Användare bör konsultera kvalificerade jurister. Allt innehåll är i utbildningssyfte inom tillämpliga rättsliga ramar.",
     },
   },
   de: {
@@ -460,6 +473,7 @@ export const translations = {
       appStoreLabel: "Laden im",
       googlePlay: "Google Play",
       googlePlayLabel: "Jetzt bei",
+      comingSoon: "Demnächst verfügbar",
     },
     mission: {
       badge: "Unsere Mission",
@@ -483,7 +497,10 @@ export const translations = {
       terms: "Nutzungsbedingungen",
       disclaimer: "Haftungsausschluss",
       contact: "Kontakt",
-      copyright: "Alle Rechte vorbehalten. Diese App erleichtert keine illegalen Grenzübertritte oder irreguläre Migration.",
+      copyright: "Alle Rechte vorbehalten. Diese App stellt ausschließlich Informationsressourcen bereit. Sie erleichtert, fördert oder unterstützt keine illegalen Grenzübertritte oder irreguläre Migration.",
+    },
+    legal: {
+      disclaimer: "Jisr ist eine reine Informationsplattform. Sie bietet keine Rechtsberatung, erleichtert keine illegalen Grenzübertritte und fördert keine irreguläre Migration. Nutzer sollten qualifizierte Rechtsexperten konsultieren. Alle Inhalte dienen Bildungszwecken im Rahmen geltender Gesetze.",
     },
   },
   nl: {
@@ -575,6 +592,7 @@ export const translations = {
       appStoreLabel: "Download in de",
       googlePlay: "Google Play",
       googlePlayLabel: "Ontdek het op",
+      comingSoon: "Binnenkort beschikbaar",
     },
     mission: {
       badge: "Onze missie",
@@ -598,7 +616,10 @@ export const translations = {
       terms: "Servicevoorwaarden",
       disclaimer: "Disclaimer",
       contact: "Contact",
-      copyright: "Alle rechten voorbehouden. Deze app faciliteert geen illegale grensoverschrijdingen of irreguliere migratie.",
+      copyright: "Alle rechten voorbehouden. Deze app biedt uitsluitend informatieve bronnen. Het faciliteert, moedigt niet aan en helpt niet bij illegale grensoverschrijdingen of irreguliere migratie.",
+    },
+    legal: {
+      disclaimer: "Jisr is een informatieplatform. Het biedt geen juridisch advies, faciliteert geen illegale grensoverschrijdingen en moedigt geen irreguliere migratie aan. Gebruikers dienen gekwalificeerde juridische professionals te raadplegen. Alle inhoud is voor educatieve doeleinden binnen toepasselijke wettelijke kaders.",
     },
   },
   fr: {
@@ -690,6 +711,7 @@ export const translations = {
       appStoreLabel: "Télécharger sur l'",
       googlePlay: "Google Play",
       googlePlayLabel: "Disponible sur",
+      comingSoon: "Bientôt disponible",
     },
     mission: {
       badge: "Notre mission",
@@ -713,7 +735,10 @@ export const translations = {
       terms: "Conditions d'utilisation",
       disclaimer: "Avertissement",
       contact: "Nous contacter",
-      copyright: "Tous droits réservés. Cette application ne facilite pas les passages de frontières illégaux ou la migration irrégulière.",
+      copyright: "Tous droits réservés. Cette application fournit uniquement des ressources informatives. Elle ne facilite pas, n'encourage pas et n'aide pas aux passages de frontières illégaux ou à la migration irrégulière.",
+    },
+    legal: {
+      disclaimer: "Jisr est une plateforme informative uniquement. Elle ne fournit pas de conseils juridiques, ne facilite pas les passages de frontières illégaux et n'encourage pas la migration irrégulière. Les utilisateurs doivent consulter des professionnels juridiques qualifiés. Tout le contenu est à des fins éducatives dans les cadres légaux applicables.",
     },
   },
   no: {
@@ -805,6 +830,7 @@ export const translations = {
       appStoreLabel: "Last ned fra",
       googlePlay: "Google Play",
       googlePlayLabel: "Få den på",
+      comingSoon: "Kommer snart",
     },
     mission: {
       badge: "Vårt oppdrag",
@@ -828,7 +854,10 @@ export const translations = {
       terms: "Vilkår for bruk",
       disclaimer: "Ansvarsfraskrivelse",
       contact: "Kontakt oss",
-      copyright: "Alle rettigheter forbeholdt. Denne appen legger ikke til rette for ulovlig grensepassering eller irregulær migrasjon.",
+      copyright: "Alle rettigheter forbeholdt. Denne appen tilbyr kun informasjonsressurser. Den legger ikke til rette for, oppmuntrer ikke eller bistår ikke med ulovlig grensepassering eller irregulær migrasjon.",
+    },
+    legal: {
+      disclaimer: "Jisr er en informasjonsplattform. Den gir ikke juridisk rådgivning, legger ikke til rette for ulovlig grensepassering eller oppmuntrer irregulær migrasjon. Brukere bør konsultere kvalifiserte juridiske fagfolk. Alt innhold er for utdanningsformål innenfor gjeldende juridiske rammer.",
     },
   },
   da: {
@@ -920,6 +949,7 @@ export const translations = {
       appStoreLabel: "Download fra",
       googlePlay: "Google Play",
       googlePlayLabel: "Hent den på",
+      comingSoon: "Kommer snart",
     },
     mission: {
       badge: "Vores mission",
@@ -943,7 +973,10 @@ export const translations = {
       terms: "Servicevilkår",
       disclaimer: "Ansvarsfraskrivelse",
       contact: "Kontakt os",
-      copyright: "Alle rettigheder forbeholdt. Denne app faciliterer ikke ulovlig grænseoverskridelse eller irregulær migration.",
+      copyright: "Alle rettigheder forbeholdt. Denne app leverer udelukkende informationsressourcer. Den faciliterer ikke, opmuntrer ikke eller bistår ikke med ulovlig grænseoverskridelse eller irregulær migration.",
+    },
+    legal: {
+      disclaimer: "Jisr er en informationsplatform. Den yder ikke juridisk rådgivning, faciliterer ikke ulovlig grænseoverskridelse eller opmuntrer irregulær migration. Brugere bør konsultere kvalificerede juridiske fagfolk. Alt indhold er til uddannelsesformål inden for gældende juridiske rammer.",
     },
   },
 } as const;
