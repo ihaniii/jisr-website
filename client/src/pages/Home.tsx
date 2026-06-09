@@ -29,6 +29,7 @@ import {
 
 // Generated images
 const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663071042274/bgxCVdTDsteXxZtUsC6eya/hero_dark-F8rGtzNbdz5apQyGDYavut.webp";
+const APP_LOGO = "/manus-storage/new jisr_icon_1024_170986ba.png";
 
 // App screenshots (uploaded)
 const SCREENSHOTS = {
@@ -81,9 +82,7 @@ export default function Home() {
       >
         <div className="container flex items-center justify-between h-16 md:h-20">
           <div className="flex items-center gap-2.5">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#00D8FF] to-[#0088AA] flex items-center justify-center shadow-lg shadow-[#00D8FF]/20">
-              <span className="text-white font-bold text-sm">جسر</span>
-            </div>
+            <img src={APP_LOGO} alt="Jisr logo" className="w-10 h-10 rounded-xl shadow-lg shadow-[#00D8FF]/20" />
             <span className="text-xl font-bold text-foreground">Jisr</span>
           </div>
 
@@ -454,9 +453,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
             <div className="md:col-span-2">
               <div className="flex items-center gap-2.5 mb-4">
-                <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#00D8FF] to-[#0088AA] flex items-center justify-center">
-                  <span className="text-white font-bold text-xs">جسر</span>
-                </div>
+                <img src={APP_LOGO} alt="Jisr logo" className="w-9 h-9 rounded-lg" />
                 <span className="text-lg font-bold text-white">Jisr</span>
               </div>
               <p className="text-muted-foreground text-sm leading-relaxed max-w-sm">
