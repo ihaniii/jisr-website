@@ -604,9 +604,9 @@ export default function Home() {
             <div>
               <h4 className="font-bold text-white mb-3 text-sm">{t.footer.legal}</h4>
               <ul className="space-y-2 text-muted-foreground text-sm">
-                <li><a href="/privacy.html" className="hover:text-cyan-400 transition-colors">{t.footer.privacyPolicy}</a></li>
-                <li><a href="/terms.html" className="hover:text-cyan-400 transition-colors">{t.footer.terms}</a></li>
-                <li>{t.footer.disclaimer}</li>
+                <li><a href={lang === 'ar' ? "/privacy-ar.html" : "/privacy.html"} className="hover:text-cyan-400 transition-colors">{t.footer.privacyPolicy}</a></li>
+                <li><a href={lang === 'ar' ? "/terms-ar.html" : "/terms.html"} className="hover:text-cyan-400 transition-colors">{t.footer.terms}</a></li>
+                <li><a href={lang === 'ar' ? "/disclaimer-ar.html" : "/disclaimer.html"} className="hover:text-cyan-400 transition-colors">{t.footer.disclaimer}</a></li>
                 <li>{t.footer.contact}</li>
               </ul>
             </div>
