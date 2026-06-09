@@ -2,18 +2,18 @@
  * Jisr Website — Dark Glass-Morphism Design
  * Matches the iOS app: dark navy bg, cyan accents, amber CTAs, glass cards, Cairo font
  * Each feature section shows the actual app screenshot beside its description
+ * Multi-language: AR, EN, SV, DE, NL, FR, NO, DA
  */
 
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { useLanguage } from "@/contexts/LanguageContext";
 import { useState, useEffect } from "react";
 import {
   Globe,
   Users,
   MapPin,
   BookOpen,
-  MessageCircle,
   Shield,
-  Heart,
   ArrowRight,
   Menu,
   X,
@@ -22,14 +22,12 @@ import {
   Brain,
   Calendar,
   Briefcase,
-  Mic,
-  GraduationCap,
-  Landmark,
+  ChevronDown,
 } from "lucide-react";
 
 // Generated images
 const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663071042274/bgxCVdTDsteXxZtUsC6eya/hero_dark-F8rGtzNbdz5apQyGDYavut.webp";
-const APP_LOGO = "/manus-storage/new jisr_icon_1024_170986ba.png";
+const APP_LOGO = "/manus-storage/pasted_file_OLzbsV_image_8ec691c2.png";
 
 // App screenshots (uploaded)
 const SCREENSHOTS = {
@@ -54,8 +52,10 @@ const SCREENSHOTS = {
 
 export default function Home() {
   const containerRef = useScrollReveal();
+  const { t, lang, setLang, dir, languages } = useLanguage();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [langMenuOpen, setLangMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -63,8 +63,19 @@ export default function Home() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Close lang menu on outside click
+  useEffect(() => {
+    const handleClick = () => setLangMenuOpen(false);
+    if (langMenuOpen) {
+      setTimeout(() => document.addEventListener("click", handleClick), 0);
+      return () => document.removeEventListener("click", handleClick);
+    }
+  }, [langMenuOpen]);
+
+  const currentLang = languages.find((l) => l.code === lang);
+
   return (
-    <div ref={containerRef} className="min-h-screen bg-background overflow-hidden">
+    <div ref={containerRef} dir={dir} className="min-h-screen bg-background overflow-hidden">
       {/* Ambient glow blobs */}
       <div className="fixed inset-0 pointer-events-none z-0">
         <div className="absolute top-[10%] right-[10%] w-[500px] h-[500px] rounded-full bg-[#00D8FF] opacity-[0.03] blur-[120px] animate-glow-pulse" />
@@ -87,17 +98,46 @@ export default function Home() {
           </div>
 
           {/* Desktop nav */}
-          <div className="hidden md:flex items-center gap-8">
-            <a href="#features" className="text-sm font-medium text-muted-foreground hover:text-[#00D8FF] transition-colors">Features</a>
-            <a href="#countries" className="text-sm font-medium text-muted-foreground hover:text-[#00D8FF] transition-colors">Countries</a>
-            <a href="#community" className="text-sm font-medium text-muted-foreground hover:text-[#00D8FF] transition-colors">Community</a>
-            <a href="#tools" className="text-sm font-medium text-muted-foreground hover:text-[#00D8FF] transition-colors">Tools</a>
+          <div className="hidden md:flex items-center gap-6">
+            <a href="#features" className="text-sm font-medium text-muted-foreground hover:text-[#00D8FF] transition-colors">{t.nav.features}</a>
+            <a href="#countries" className="text-sm font-medium text-muted-foreground hover:text-[#00D8FF] transition-colors">{t.nav.countries}</a>
+            <a href="#community" className="text-sm font-medium text-muted-foreground hover:text-[#00D8FF] transition-colors">{t.nav.community}</a>
+            <a href="#tools" className="text-sm font-medium text-muted-foreground hover:text-[#00D8FF] transition-colors">{t.nav.tools}</a>
+
+            {/* Language switcher */}
+            <div className="relative">
+              <button
+                onClick={(e) => { e.stopPropagation(); setLangMenuOpen(!langMenuOpen); }}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border text-sm text-muted-foreground hover:text-foreground hover:border-[#00D8FF]/40 transition-all"
+              >
+                <span>{currentLang?.flag}</span>
+                <span className="hidden lg:inline">{currentLang?.label}</span>
+                <ChevronDown className="w-3.5 h-3.5" />
+              </button>
+              {langMenuOpen && (
+                <div className="absolute top-full mt-2 end-0 w-44 glass-card py-2 shadow-xl border border-border z-50">
+                  {languages.map((l) => (
+                    <button
+                      key={l.code}
+                      onClick={() => { setLang(l.code); setLangMenuOpen(false); }}
+                      className={`w-full text-start px-4 py-2 text-sm flex items-center gap-2.5 hover:bg-white/5 transition-colors ${
+                        l.code === lang ? "text-[#00D8FF] font-semibold" : "text-muted-foreground"
+                      }`}
+                    >
+                      <span>{l.flag}</span>
+                      <span>{l.label}</span>
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+
             <a
               href="#download"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#F28C38] to-[#E8725A] text-white text-sm font-bold hover:opacity-90 transition-all active:scale-[0.97] shadow-lg shadow-[#F28C38]/20"
             >
               <Download className="w-4 h-4" />
-              Download
+              {t.nav.download}
             </a>
           </div>
 
@@ -114,17 +154,33 @@ export default function Home() {
         {mobileMenuOpen && (
           <div className="md:hidden bg-background/95 backdrop-blur-xl border-b border-border px-4 pb-6 pt-2 animate-fade-up">
             <div className="flex flex-col gap-4">
-              <a href="#features" className="text-base font-medium text-foreground" onClick={() => setMobileMenuOpen(false)}>Features</a>
-              <a href="#countries" className="text-base font-medium text-foreground" onClick={() => setMobileMenuOpen(false)}>Countries</a>
-              <a href="#community" className="text-base font-medium text-foreground" onClick={() => setMobileMenuOpen(false)}>Community</a>
-              <a href="#tools" className="text-base font-medium text-foreground" onClick={() => setMobileMenuOpen(false)}>Tools</a>
+              <a href="#features" className="text-base font-medium text-foreground" onClick={() => setMobileMenuOpen(false)}>{t.nav.features}</a>
+              <a href="#countries" className="text-base font-medium text-foreground" onClick={() => setMobileMenuOpen(false)}>{t.nav.countries}</a>
+              <a href="#community" className="text-base font-medium text-foreground" onClick={() => setMobileMenuOpen(false)}>{t.nav.community}</a>
+              <a href="#tools" className="text-base font-medium text-foreground" onClick={() => setMobileMenuOpen(false)}>{t.nav.tools}</a>
+              {/* Mobile language selector */}
+              <div className="flex flex-wrap gap-2 pt-2 border-t border-border">
+                {languages.map((l) => (
+                  <button
+                    key={l.code}
+                    onClick={() => { setLang(l.code); setMobileMenuOpen(false); }}
+                    className={`px-3 py-1.5 rounded-lg text-xs font-medium border transition-all ${
+                      l.code === lang
+                        ? "border-[#00D8FF] text-[#00D8FF] bg-[#00D8FF]/10"
+                        : "border-border text-muted-foreground hover:border-white/30"
+                    }`}
+                  >
+                    {l.flag} {l.label}
+                  </button>
+                ))}
+              </div>
               <a
                 href="#download"
                 className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full bg-gradient-to-r from-[#F28C38] to-[#E8725A] text-white text-sm font-bold"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 <Download className="w-4 h-4" />
-                Download App
+                {t.nav.download}
               </a>
             </div>
           </div>
@@ -150,32 +206,34 @@ export default function Home() {
               <div className="reveal">
                 <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#00D8FF]/10 border border-[#00D8FF]/20 mb-6">
                   <Sparkles className="w-3.5 h-3.5 text-[#00D8FF]" />
-                  <span className="text-xs font-semibold text-[#00D8FF] tracking-wide">Connecting Hearts, Building Futures</span>
+                  <span className="text-xs font-semibold text-[#00D8FF] tracking-wide">{t.hero.badge}</span>
                 </div>
               </div>
               <h1 className="reveal text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-[1.1] mb-6">
-                Your Bridge to a{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00D8FF] to-[#00A8CC]">New Beginning</span>
+                {t.hero.title1}{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00D8FF] to-[#00A8CC]">{t.hero.title2}</span>
               </h1>
               <p className="reveal text-lg text-white/70 leading-relaxed mb-3 max-w-lg">
-                Jisr empowers refugees and asylum seekers with information, community, and resources to build a new life with confidence.
+                {t.hero.desc}
               </p>
-              <p className="reveal text-lg text-white/50 leading-relaxed mb-8 max-w-lg" dir="rtl">
-                جسر يمكّن اللاجئين وطالبي اللجوء بالمعلومات والمجتمع والموارد لبناء حياة جديدة بثقة.
-              </p>
+              {t.hero.descAr && (
+                <p className="reveal text-lg text-white/50 leading-relaxed mb-8 max-w-lg" dir="rtl">
+                  {t.hero.descAr}
+                </p>
+              )}
               <div className="reveal flex flex-wrap gap-4">
                 <a
                   href="#download"
                   className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-[#F28C38] to-[#E8725A] text-white font-bold text-base hover:shadow-lg hover:shadow-[#F28C38]/30 transition-all active:scale-[0.97]"
                 >
                   <Download className="w-5 h-5" />
-                  Download Free
+                  {t.hero.cta1}
                 </a>
                 <a
                   href="#features"
                   className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full border border-white/20 text-white font-semibold text-base hover:bg-white/5 transition-all"
                 >
-                  Explore Features
+                  {t.hero.cta2}
                   <ArrowRight className="w-4 h-4" />
                 </a>
               </div>
@@ -184,15 +242,15 @@ export default function Home() {
               <div className="reveal mt-12 flex gap-8">
                 <div>
                   <div className="text-2xl font-bold text-[#00D8FF]">8+</div>
-                  <div className="text-xs text-muted-foreground mt-0.5">Countries</div>
+                  <div className="text-xs text-muted-foreground mt-0.5">{t.hero.stat1}</div>
                 </div>
                 <div>
                   <div className="text-2xl font-bold text-[#F28C38]">15+</div>
-                  <div className="text-xs text-muted-foreground mt-0.5">Features</div>
+                  <div className="text-xs text-muted-foreground mt-0.5">{t.hero.stat2}</div>
                 </div>
                 <div>
                   <div className="text-2xl font-bold text-white">AR/EN</div>
-                  <div className="text-xs text-muted-foreground mt-0.5">Bilingual</div>
+                  <div className="text-xs text-muted-foreground mt-0.5">{t.hero.stat3}</div>
                 </div>
               </div>
             </div>
@@ -211,29 +269,29 @@ export default function Home() {
       <section id="features" className="relative py-24 z-10">
         <div className="container">
           <div className="reveal text-center max-w-2xl mx-auto mb-16">
-            <span className="text-[#00D8FF] text-sm font-bold tracking-wider uppercase">Everything You Need</span>
+            <span className="text-[#00D8FF] text-sm font-bold tracking-wider uppercase">{t.features.badge}</span>
             <h2 className="text-3xl lg:text-4xl font-extrabold text-white mt-3 mb-4">
-              A Complete Support Ecosystem
+              {t.features.title}
             </h2>
             <p className="text-muted-foreground text-lg leading-relaxed">
-              From asylum information to community connections, Jisr provides comprehensive tools for every step of your journey.
+              {t.features.desc}
             </p>
           </div>
 
           {/* Quick feature grid */}
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
             {[
-              { icon: <Globe className="w-5 h-5" />, label: "Asylum Info", color: "#00D8FF" },
-              { icon: <MapPin className="w-5 h-5" />, label: "Resource Map", color: "#4CAF50" },
-              { icon: <Users className="w-5 h-5" />, label: "Support Groups", color: "#F28C38" },
-              { icon: <BookOpen className="w-5 h-5" />, label: "Stories", color: "#E8725A" },
-              { icon: <Brain className="w-5 h-5" />, label: "AI Assistant", color: "#00D8FF" },
-              { icon: <Briefcase className="w-5 h-5" />, label: "CV Builder", color: "#9C27B0" },
-              { icon: <Calendar className="w-5 h-5" />, label: "Events", color: "#F28C38" },
-              { icon: <Shield className="w-5 h-5" />, label: "Mentorship", color: "#4CAF50" },
+              { icon: <Globe className="w-5 h-5" />, label: t.features.items.asylum, color: "#00D8FF" },
+              { icon: <MapPin className="w-5 h-5" />, label: t.features.items.map, color: "#4CAF50" },
+              { icon: <Users className="w-5 h-5" />, label: t.features.items.groups, color: "#F28C38" },
+              { icon: <BookOpen className="w-5 h-5" />, label: t.features.items.stories, color: "#E8725A" },
+              { icon: <Brain className="w-5 h-5" />, label: t.features.items.ai, color: "#00D8FF" },
+              { icon: <Briefcase className="w-5 h-5" />, label: t.features.items.cv, color: "#9C27B0" },
+              { icon: <Calendar className="w-5 h-5" />, label: t.features.items.events, color: "#F28C38" },
+              { icon: <Shield className="w-5 h-5" />, label: t.features.items.mentorship, color: "#4CAF50" },
             ].map((item, i) => (
               <div
-                key={item.label}
+                key={i}
                 className="reveal glass-card glass-card-hover p-5 flex flex-col items-center gap-3 text-center"
                 style={{ transitionDelay: `${i * 0.05}s` }}
               >
@@ -257,16 +315,11 @@ export default function Home() {
             direction="left"
             screenshot={SCREENSHOTS.countries}
             screenshot2={SCREENSHOTS.countryDetail}
-            badge="Country Guides"
+            badge={t.countries.badge}
             badgeColor="#00D8FF"
-            title="Asylum Information for 8+ Countries"
-            description="Comprehensive guides including acceptance rates, required documents, processing times, and local resources. Get detailed information about Sweden, Germany, Netherlands, Canada, UK, France, Norway, and Denmark."
-            features={[
-              "Acceptance rates and processing times",
-              "Required documents checklist",
-              "Local resources and contacts",
-              "Community members in each country",
-            ]}
+            title={t.countries.title}
+            description={t.countries.desc}
+            features={[t.countries.f1, t.countries.f2, t.countries.f3, t.countries.f4]}
           />
         </div>
       </section>
@@ -278,16 +331,11 @@ export default function Home() {
             direction="right"
             screenshot={SCREENSHOTS.stories}
             screenshot2={SCREENSHOTS.groups}
-            badge="Community"
+            badge={t.community.badge}
             badgeColor="#F28C38"
-            title="Stories & Support Groups"
-            description="Share your journey, read others' experiences, and connect with support groups. Every story helps someone else, and every connection builds strength."
-            features={[
-              "Share success stories and challenges",
-              "Join topic-based support groups",
-              "Audio rooms for live conversations",
-              "Private messaging and group chats",
-            ]}
+            title={t.community.title}
+            description={t.community.desc}
+            features={[t.community.f1, t.community.f2, t.community.f3, t.community.f4]}
           />
         </div>
       </section>
@@ -299,16 +347,11 @@ export default function Home() {
             direction="left"
             screenshot={SCREENSHOTS.map}
             screenshot2={SCREENSHOTS.hub}
-            badge="Resources"
+            badge={t.resources.badge}
             badgeColor="#4CAF50"
-            title="Interactive Resource Map & Hub"
-            description="Find essential services near you — legal aid, healthcare, housing, food banks, and community support centers. All organized by category and location on an interactive map."
-            features={[
-              "Legal aid and lawyers nearby",
-              "Healthcare and mental health services",
-              "Housing assistance programs",
-              "Food banks and community support",
-            ]}
+            title={t.resources.title}
+            description={t.resources.desc}
+            features={[t.resources.f1, t.resources.f2, t.resources.f3, t.resources.f4]}
           />
         </div>
       </section>
@@ -320,16 +363,11 @@ export default function Home() {
             direction="right"
             screenshot={SCREENSHOTS.ai}
             screenshot2={SCREENSHOTS.cv}
-            badge="Smart Tools"
+            badge={t.tools.badge}
             badgeColor="#9C27B0"
-            title="AI Assistant & Career Tools"
-            description="Get instant answers about asylum procedures, build professional CVs, prepare for interviews, and understand legal documents — all powered by AI and designed for your needs."
-            features={[
-              "AI-powered asylum guidance",
-              "Professional CV builder",
-              "Interview simulator",
-              "Document explainer",
-            ]}
+            title={t.tools.title}
+            description={t.tools.desc}
+            features={[t.tools.f1, t.tools.f2, t.tools.f3, t.tools.f4]}
           />
         </div>
       </section>
@@ -341,16 +379,11 @@ export default function Home() {
             direction="left"
             screenshot={SCREENSHOTS.glossary}
             screenshot2={SCREENSHOTS.events}
-            badge="More Features"
+            badge={t.more.badge}
             badgeColor="#E8725A"
-            title="Glossary, Events & Beyond"
-            description="Understand legal terminology in both Arabic and English, discover local events and workshops, access banking guides, and participate in weekly challenges to earn points."
-            features={[
-              "Bilingual asylum glossary",
-              "Local events and workshops",
-              "Banking and finance guides",
-              "Weekly challenges and rewards",
-            ]}
+            title={t.more.title}
+            description={t.more.desc}
+            features={[t.more.f1, t.more.f2, t.more.f3, t.more.f4]}
           />
         </div>
       </section>
@@ -365,16 +398,18 @@ export default function Home() {
 
             <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div className="reveal">
-                <span className="text-[#00D8FF] text-sm font-bold tracking-wider uppercase">Download Now</span>
+                <span className="text-[#00D8FF] text-sm font-bold tracking-wider uppercase">{t.download.badge}</span>
                 <h2 className="text-3xl lg:text-4xl font-extrabold text-white mt-3 mb-4">
-                  Start Your Journey with Jisr Today
+                  {t.download.title}
                 </h2>
                 <p className="text-muted-foreground text-lg leading-relaxed mb-3">
-                  Available in Arabic and English. Free forever. Your companion for every step of the way.
+                  {t.download.desc}
                 </p>
-                <p className="text-muted-foreground/70 text-lg leading-relaxed mb-8" dir="rtl">
-                  متوفر بالعربية والإنجليزية. مجاني للأبد. رفيقك في كل خطوة.
-                </p>
+                {t.download.descAr && (
+                  <p className="text-muted-foreground/70 text-lg leading-relaxed mb-8" dir="rtl">
+                    {t.download.descAr}
+                  </p>
+                )}
                 <div className="flex flex-wrap gap-4">
                   <a
                     href="#"
@@ -383,9 +418,9 @@ export default function Home() {
                     <svg className="w-7 h-7" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
                     </svg>
-                    <div className="text-left">
-                      <div className="text-[10px] opacity-60 leading-none">Download on the</div>
-                      <div className="text-base font-bold leading-tight">App Store</div>
+                    <div className="text-start">
+                      <div className="text-[10px] opacity-60 leading-none">{t.download.appStoreLabel}</div>
+                      <div className="text-base font-bold leading-tight">{t.download.appStore}</div>
                     </div>
                   </a>
                   <a
@@ -395,9 +430,9 @@ export default function Home() {
                     <svg className="w-7 h-7" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/>
                     </svg>
-                    <div className="text-left">
-                      <div className="text-[10px] opacity-60 leading-none">Get it on</div>
-                      <div className="text-base font-bold leading-tight">Google Play</div>
+                    <div className="text-start">
+                      <div className="text-[10px] opacity-60 leading-none">{t.download.googlePlayLabel}</div>
+                      <div className="text-base font-bold leading-tight">{t.download.googlePlay}</div>
                     </div>
                   </a>
                 </div>
@@ -421,23 +456,23 @@ export default function Home() {
       <section className="relative py-24 z-10">
         <div className="container">
           <div className="reveal max-w-3xl mx-auto text-center">
-            <span className="text-[#00D8FF] text-sm font-bold tracking-wider uppercase">Our Mission</span>
+            <span className="text-[#00D8FF] text-sm font-bold tracking-wider uppercase">{t.mission.badge}</span>
             <h2 className="text-3xl lg:text-4xl font-extrabold text-white mt-3 mb-6">
-              Building Bridges, Not Walls
+              {t.mission.title}
             </h2>
             <p className="text-muted-foreground text-lg leading-relaxed mb-4">
-              Jisr (جسر) means "Bridge" in Arabic. We believe every person deserves access to accurate information, a supportive community, and tools to build a dignified life — regardless of where they come from.
+              {t.mission.desc1}
             </p>
             <p className="text-muted-foreground text-lg leading-relaxed mb-8">
-              Our platform is built by and for the community, with a commitment to privacy, accuracy, and empowerment.
+              {t.mission.desc2}
             </p>
             <div className="flex flex-wrap gap-6 justify-center">
               {[
-                { icon: <Sparkles className="w-5 h-5" />, label: "Free Forever", color: "#F28C38" },
-                { icon: <Shield className="w-5 h-5" />, label: "Privacy First", color: "#00D8FF" },
-                { icon: <Globe className="w-5 h-5" />, label: "Bilingual (AR/EN)", color: "#4CAF50" },
-              ].map((item) => (
-                <div key={item.label} className="flex items-center gap-2">
+                { icon: <Sparkles className="w-5 h-5" />, label: t.mission.free, color: "#F28C38" },
+                { icon: <Shield className="w-5 h-5" />, label: t.mission.privacy, color: "#00D8FF" },
+                { icon: <Globe className="w-5 h-5" />, label: t.mission.bilingual, color: "#4CAF50" },
+              ].map((item, i) => (
+                <div key={i} className="flex items-center gap-2">
                   <span style={{ color: item.color }}>{item.icon}</span>
                   <span className="font-semibold text-white text-sm">{item.label}</span>
                 </div>
@@ -457,32 +492,32 @@ export default function Home() {
                 <span className="text-lg font-bold text-white">Jisr</span>
               </div>
               <p className="text-muted-foreground text-sm leading-relaxed max-w-sm">
-                Connecting Hearts, Building Futures. نربط القلوب ونبني المستقبل.
+                {t.footer.tagline}
               </p>
             </div>
             <div>
-              <h4 className="font-bold text-white mb-3 text-sm">Features</h4>
+              <h4 className="font-bold text-white mb-3 text-sm">{t.footer.features}</h4>
               <ul className="space-y-2 text-muted-foreground text-sm">
-                <li>Asylum Information</li>
-                <li>Resource Map</li>
-                <li>Community Stories</li>
-                <li>AI Assistant</li>
-                <li>CV Builder</li>
+                <li>{t.footer.asylumInfo}</li>
+                <li>{t.footer.resourceMap}</li>
+                <li>{t.footer.communityStories}</li>
+                <li>{t.footer.aiAssistant}</li>
+                <li>{t.footer.cvBuilder}</li>
               </ul>
             </div>
             <div>
-              <h4 className="font-bold text-white mb-3 text-sm">Legal</h4>
+              <h4 className="font-bold text-white mb-3 text-sm">{t.footer.legal}</h4>
               <ul className="space-y-2 text-muted-foreground text-sm">
-                <li>Privacy Policy</li>
-                <li>Terms of Service</li>
-                <li>Disclaimer</li>
-                <li>Contact Us</li>
+                <li>{t.footer.privacyPolicy}</li>
+                <li>{t.footer.terms}</li>
+                <li>{t.footer.disclaimer}</li>
+                <li>{t.footer.contact}</li>
               </ul>
             </div>
           </div>
           <div className="border-t border-border pt-6 text-center">
             <p className="text-muted-foreground/60 text-sm">
-              &copy; {new Date().getFullYear()} Jisr. All rights reserved. This app does not facilitate illegal border crossings or irregular migration.
+              &copy; {new Date().getFullYear()} Jisr. {t.footer.copyright}
             </p>
           </div>
         </div>
