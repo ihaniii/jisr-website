@@ -12,10 +12,10 @@ export function useScrollReveal() {
           }
         });
       },
-      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
+      { threshold: 0.1, rootMargin: "0px 0px -40px 0px" }
     );
 
-    const elements = ref.current?.querySelectorAll(".reveal");
+    const elements = ref.current?.querySelectorAll(".reveal, .reveal-left, .reveal-right");
     elements?.forEach((el) => observer.observe(el));
 
     return () => observer.disconnect();
