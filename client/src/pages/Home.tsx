@@ -41,29 +41,49 @@ import {
   SupportIcon,
 } from "@/components/AppIcons";
 
+// Import all images so Vite includes them in the build
+import logoImg from "../../../client/public/pasted_file_OLzbsV_image.png";
+import onboardingImg from "../../../client/public/ScreenshotiPhone17ProMax06-09-2026at9.49.36PM.webp";
+import homeImg from "../../../client/public/ScreenshotiPhone17ProMax06-09-2026at9.49.51PM.webp";
+import homeHeroImg from "../../../client/public/ScreenshotiPhone17ProMax06-09-2026at9.49.56PM.webp";
+import countriesImg from "../../../client/public/ScreenshotiPhone17ProMax06-09-2026at9.50.10PM.webp";
+import countryDetailImg from "../../../client/public/ScreenshotiPhone17ProMax06-09-2026at9.50.17PM.webp";
+import storiesImg from "../../../client/public/ScreenshotiPhone17ProMax06-09-2026at9.51.27PM.webp";
+import groupsImg from "../../../client/public/ScreenshotiPhone17ProMax06-09-2026at9.51.59PM.webp";
+import mapImg from "../../../client/public/ScreenshotiPhone17ProMax06-09-2026at9.52.09PM.webp";
+import hubImg from "../../../client/public/ScreenshotiPhone17ProMax06-09-2026at9.52.16PM.webp";
+import aiImg from "../../../client/public/ScreenshotiPhone17ProMax06-09-2026at9.52.24PM.webp";
+import cvImg from "../../../client/public/ScreenshotiPhone17ProMax06-09-2026at9.52.30PM.webp";
+import glossaryImg from "../../../client/public/ScreenshotiPhone17ProMax06-09-2026at9.52.40PM.webp";
+import eventsImg from "../../../client/public/ScreenshotiPhone17ProMax06-09-2026at9.52.49PM.webp";
+import mentorshipImg from "../../../client/public/ScreenshotiPhone17ProMax06-09-2026at9.52.57PM.webp";
+import profileImg from "../../../client/public/ScreenshotiPhone17ProMax06-09-2026at9.53.05PM.webp";
+import marketplaceImg from "../../../client/public/ScreenshotiPhone17ProMax06-09-2026at9.53.15PM.webp";
+import quizImg from "../../../client/public/ScreenshotiPhone17ProMax06-09-2026at9.53.21PM.webp";
+
 // Generated images
 const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663071042274/bgxCVdTDsteXxZtUsC6eya/hero_dark-F8rGtzNbdz5apQyGDYavut.webp";
-const APP_LOGO = "/manus-storage/pasted_file_OLzbsV_image_8ec691c2.png";
+const APP_LOGO = logoImg;
 
 // App screenshots (uploaded)
 const SCREENSHOTS = {
-  onboarding: "/manus-storage/ScreenshotiPhone17ProMax06-09-2026at9.49.36PM_39491679.webp",
-  home: "/manus-storage/ScreenshotiPhone17ProMax06-09-2026at9.49.51PM_4f05e4dc.webp",
-  homeHero: "/manus-storage/ScreenshotiPhone17ProMax06-09-2026at9.49.56PM_4ec03c3c.webp",
-  countries: "/manus-storage/ScreenshotiPhone17ProMax06-09-2026at9.50.10PM_86c928e5.webp",
-  countryDetail: "/manus-storage/ScreenshotiPhone17ProMax06-09-2026at9.50.17PM_24ec3e67.webp",
-  stories: "/manus-storage/ScreenshotiPhone17ProMax06-09-2026at9.51.27PM_f32c3489.webp",
-  groups: "/manus-storage/ScreenshotiPhone17ProMax06-09-2026at9.51.59PM_71c673c5.webp",
-  map: "/manus-storage/ScreenshotiPhone17ProMax06-09-2026at9.52.09PM_fff252b5.webp",
-  hub: "/manus-storage/ScreenshotiPhone17ProMax06-09-2026at9.52.16PM_ccae1644.webp",
-  ai: "/manus-storage/ScreenshotiPhone17ProMax06-09-2026at9.52.24PM_2329a1ec.webp",
-  cv: "/manus-storage/ScreenshotiPhone17ProMax06-09-2026at9.52.30PM_23eb82c1.webp",
-  glossary: "/manus-storage/ScreenshotiPhone17ProMax06-09-2026at9.52.40PM_bfae9ff4.webp",
-  events: "/manus-storage/ScreenshotiPhone17ProMax06-09-2026at9.52.49PM_81a03ced.webp",
-  mentorship: "/manus-storage/ScreenshotiPhone17ProMax06-09-2026at9.52.57PM_86ffc6d0.webp",
-  profile: "/manus-storage/ScreenshotiPhone17ProMax06-09-2026at9.53.05PM_68a9eddd.webp",
-  marketplace: "/manus-storage/ScreenshotiPhone17ProMax06-09-2026at9.53.15PM_6161af82.webp",
-  quiz: "/manus-storage/ScreenshotiPhone17ProMax06-09-2026at9.53.21PM_6bcb83a0.webp",
+  onboarding: onboardingImg,
+  home: homeImg,
+  homeHero: homeHeroImg,
+  countries: countriesImg,
+  countryDetail: countryDetailImg,
+  stories: storiesImg,
+  groups: groupsImg,
+  map: mapImg,
+  hub: hubImg,
+  ai: aiImg,
+  cv: cvImg,
+  glossary: glossaryImg,
+  events: eventsImg,
+  mentorship: mentorshipImg,
+  profile: profileImg,
+  marketplace: marketplaceImg,
+  quiz: quizImg,
 };
 
 export default function Home() {
