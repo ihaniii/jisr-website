@@ -241,45 +241,52 @@ export default function Home() {
 
         <div className="container relative z-10">
           {/* Opening Message */}
-          <div className="reveal mb-16 max-w-3xl">
-            <div className="glass-card p-8 md:p-12 rounded-2xl border border-[#00D8FF]/20 backdrop-blur-xl hover:border-[#00D8FF]/40 transition-all duration-500 hover:shadow-lg hover:shadow-[#00D8FF]/10 relative group overflow-hidden">
-              {/* Decorative gradient backgrounds */}
-              <div className="absolute -top-1 -left-1 w-20 h-20 bg-gradient-to-br from-[#00D8FF]/10 to-transparent rounded-full blur-2xl group-hover:from-[#00D8FF]/20 transition-all duration-500" />
-              <div className="absolute -bottom-1 -right-1 w-20 h-20 bg-gradient-to-tl from-[#F28C38]/10 to-transparent rounded-full blur-2xl group-hover:from-[#F28C38]/20 transition-all duration-500" />
+          {/* Opening Message - Elegant Minimal Design */}
+          <div className="reveal mb-20 max-w-4xl mx-auto">
+            <div className="relative">
+              {/* Subtle top accent line */}
+              <div className="absolute -top-4 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#00D8FF]/40 to-transparent" />
               
-              <div className="relative z-10">
+              <div className="px-8 md:px-12 py-12 md:py-16">
                 {lang === 'ar' ? (
-                  <div className="space-y-6 text-right" dir="rtl">
-                    <p className="text-lg md:text-xl text-white/80 leading-relaxed font-light transition-all duration-500 hover:text-white/90">
+                  <div className="space-y-8 text-right" dir="rtl">
+                    {/* Quote mark */}
+                    <div className="flex justify-end">
+                      <span className="text-5xl md:text-6xl text-[#00D8FF]/20 font-serif leading-none">\"</span>
+                    </div>
+                    
+                    <p className="text-xl md:text-2xl text-white/90 leading-relaxed font-light">
                       {t.opening.line1}
                     </p>
-                    <p className="text-2xl md:text-3xl text-[#00D8FF] font-bold hover:text-[#00A8CC] transition-colors duration-300">
-                      هنا يأتي <span className="text-white">جِسر</span>.
-                    </p>
-                    <p className="text-lg md:text-xl text-white/80 leading-relaxed font-light transition-all duration-500 hover:text-white/90">
-                      {t.opening.line3}
-                    </p>
-                    <p className="text-lg md:text-xl text-[#F28C38] font-semibold italic hover:text-[#FFB347] transition-colors duration-300">
-                      {t.opening.line4}
-                    </p>
+                    
+                    <div className="flex justify-end pt-2">
+                      <p className="text-2xl md:text-3xl text-[#00D8FF] font-semibold">
+                        — جِسر
+                      </p>
+                    </div>
                   </div>
                 ) : (
-                  <div className="space-y-6 text-left">
-                    <p className="text-lg md:text-xl text-white/80 leading-relaxed font-light transition-all duration-500 hover:text-white/90">
+                  <div className="space-y-8 text-left">
+                    {/* Quote mark */}
+                    <div className="flex justify-start">
+                      <span className="text-5xl md:text-6xl text-[#00D8FF]/20 font-serif leading-none">\"</span>
+                    </div>
+                    
+                    <p className="text-xl md:text-2xl text-white/90 leading-relaxed font-light">
                       {t.opening.line1}
                     </p>
-                    <p className="text-2xl md:text-3xl text-[#00D8FF] font-bold hover:text-[#00A8CC] transition-colors duration-300">
-                      This is where <span className="text-white">Jisr</span> comes in.
-                    </p>
-                    <p className="text-lg md:text-xl text-white/80 leading-relaxed font-light transition-all duration-500 hover:text-white/90">
-                      {t.opening.line3}
-                    </p>
-                    <p className="text-lg md:text-xl text-[#F28C38] font-semibold italic hover:text-[#FFB347] transition-colors duration-300">
-                      {t.opening.line4}
-                    </p>
+                    
+                    <div className="flex justify-start pt-2">
+                      <p className="text-2xl md:text-3xl text-[#00D8FF] font-semibold">
+                        — Jisr
+                      </p>
+                    </div>
                   </div>
                 )}
               </div>
+              
+              {/* Subtle bottom accent line */}
+              <div className="absolute -bottom-4 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#00D8FF]/40 to-transparent" />
             </div>
           </div>
 
