@@ -9,21 +9,37 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useState, useEffect } from "react";
 import {
-  Globe,
-  Users,
-  MapPin,
-  BookOpen,
   Shield,
   ArrowRight,
   Menu,
   X,
   Download,
   Sparkles,
-  Brain,
-  Calendar,
-  Briefcase,
   ChevronDown,
 } from "lucide-react";
+import {
+  AsylumIcon,
+  MapIcon,
+  GroupsIcon,
+  StoriesIcon,
+  AIIcon,
+  CVIcon,
+  EventsIcon,
+  MentorshipIcon,
+  GlossaryIcon,
+  InterviewIcon,
+  DocumentIcon,
+  BankingIcon,
+  CalculatorIcon,
+  NewsIcon,
+  FlatshareIcon,
+  QuizIcon,
+  MessagesIcon,
+  OrgsIcon,
+  MarketplaceIcon,
+  PointsIcon,
+  SupportIcon,
+} from "@/components/AppIcons";
 
 // Generated images
 const HERO_IMG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663071042274/bgxCVdTDsteXxZtUsC6eya/hero_dark-F8rGtzNbdz5apQyGDYavut.webp";
@@ -278,30 +294,40 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Quick feature grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+          {/* Quick feature grid — uses the app's actual icons, matching the app dashboard */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
             {[
-              { icon: <Globe className="w-5 h-5" />, label: t.features.items.asylum, color: "#00D8FF" },
-              { icon: <MapPin className="w-5 h-5" />, label: t.features.items.map, color: "#4CAF50" },
-              { icon: <Users className="w-5 h-5" />, label: t.features.items.groups, color: "#F28C38" },
-              { icon: <BookOpen className="w-5 h-5" />, label: t.features.items.stories, color: "#E8725A" },
-              { icon: <Brain className="w-5 h-5" />, label: t.features.items.ai, color: "#00D8FF" },
-              { icon: <Briefcase className="w-5 h-5" />, label: t.features.items.cv, color: "#9C27B0" },
-              { icon: <Calendar className="w-5 h-5" />, label: t.features.items.events, color: "#F28C38" },
-              { icon: <Shield className="w-5 h-5" />, label: t.features.items.mentorship, color: "#4CAF50" },
+              { icon: <AsylumIcon size={28} />, label: t.features.items.asylum, border: "#00D8FF" },
+              { icon: <MapIcon size={28} />, label: t.features.items.map, border: "#00D8FF" },
+              { icon: <GroupsIcon size={28} />, label: t.features.items.groups, border: "#FF007B" },
+              { icon: <StoriesIcon size={28} />, label: t.features.items.stories, border: "#FF007B" },
+              { icon: <AIIcon size={28} />, label: t.features.items.ai, border: "#00D8FF" },
+              { icon: <CVIcon size={28} />, label: t.features.items.cv, border: "#FF007B" },
+              { icon: <EventsIcon size={28} />, label: t.features.items.events, border: "#FF007B" },
+              { icon: <MentorshipIcon size={28} />, label: t.features.items.mentorship, border: "#00D8FF" },
+              { icon: <GlossaryIcon size={28} />, label: t.features.items.glossary, border: "#00D8FF" },
+              { icon: <InterviewIcon size={28} />, label: t.features.items.interview, border: "#FF007B" },
+              { icon: <BankingIcon size={28} />, label: t.features.items.banking, border: "#00D8FF" },
+              { icon: <CalculatorIcon size={28} />, label: t.features.items.calculator, border: "#FF007B" },
+              { icon: <QuizIcon size={28} />, label: t.features.items.quiz, border: "#00D8FF" },
+              { icon: <MessagesIcon size={28} />, label: t.features.items.messages, border: "#00D8FF" },
+              { icon: <MarketplaceIcon size={28} />, label: t.features.items.marketplace, border: "#00D8FF" },
+              { icon: <OrgsIcon size={28} />, label: t.features.items.orgs, border: "#00D8FF" },
+              { icon: <NewsIcon size={28} />, label: t.features.items.news, border: "#FF007B" },
+              { icon: <FlatshareIcon size={28} />, label: t.features.items.flatshare, border: "#FF007B" },
+              { icon: <PointsIcon size={28} />, label: t.features.items.points, border: "#FFD700" },
+              { icon: <SupportIcon size={28} />, label: t.features.items.support, border: "#00D8FF" },
+              { icon: <DocumentIcon size={28} />, label: t.features.items.document, border: "#FF007B" },
             ].map((item, i) => (
               <div
                 key={i}
                 className="reveal glass-card glass-card-hover p-5 flex flex-col items-center gap-3 text-center"
-                style={{ transitionDelay: `${i * 0.05}s` }}
+                style={{ transitionDelay: `${i * 0.03}s`, borderColor: `${item.border}30` }}
               >
-                <div
-                  className="w-10 h-10 rounded-xl flex items-center justify-center"
-                  style={{ backgroundColor: `${item.color}15`, color: item.color }}
-                >
+                <div className="w-12 h-12 flex items-center justify-center">
                   {item.icon}
                 </div>
-                <span className="text-sm font-semibold text-white">{item.label}</span>
+                <span className="text-xs font-semibold text-white">{item.label}</span>
               </div>
             ))}
           </div>
@@ -320,6 +346,13 @@ export default function Home() {
             title={t.countries.title}
             description={t.countries.desc}
             features={[t.countries.f1, t.countries.f2, t.countries.f3, t.countries.f4]}
+            icon={<AsylumIcon size={32} />}
+            featureIcons={[
+              <AsylumIcon size={18} />,
+              <DocumentIcon size={18} />,
+              <MapIcon size={18} />,
+              <GroupsIcon size={18} />,
+            ]}
           />
         </div>
       </section>
@@ -336,6 +369,13 @@ export default function Home() {
             title={t.community.title}
             description={t.community.desc}
             features={[t.community.f1, t.community.f2, t.community.f3, t.community.f4]}
+            icon={<StoriesIcon size={32} />}
+            featureIcons={[
+              <StoriesIcon size={18} />,
+              <GroupsIcon size={18} />,
+              <InterviewIcon size={18} />,
+              <MessagesIcon size={18} />,
+            ]}
           />
         </div>
       </section>
@@ -352,6 +392,13 @@ export default function Home() {
             title={t.resources.title}
             description={t.resources.desc}
             features={[t.resources.f1, t.resources.f2, t.resources.f3, t.resources.f4]}
+            icon={<MapIcon size={32} />}
+            featureIcons={[
+              <SupportIcon size={18} />,
+              <SupportIcon size={18} />,
+              <FlatshareIcon size={18} />,
+              <OrgsIcon size={18} />,
+            ]}
           />
         </div>
       </section>
@@ -368,6 +415,13 @@ export default function Home() {
             title={t.tools.title}
             description={t.tools.desc}
             features={[t.tools.f1, t.tools.f2, t.tools.f3, t.tools.f4]}
+            icon={<AIIcon size={32} />}
+            featureIcons={[
+              <AIIcon size={18} />,
+              <CVIcon size={18} />,
+              <InterviewIcon size={18} />,
+              <DocumentIcon size={18} />,
+            ]}
           />
         </div>
       </section>
@@ -384,6 +438,13 @@ export default function Home() {
             title={t.more.title}
             description={t.more.desc}
             features={[t.more.f1, t.more.f2, t.more.f3, t.more.f4]}
+            icon={<GlossaryIcon size={32} />}
+            featureIcons={[
+              <GlossaryIcon size={18} />,
+              <EventsIcon size={18} />,
+              <BankingIcon size={18} />,
+              <PointsIcon size={18} />,
+            ]}
           />
         </div>
       </section>
@@ -471,7 +532,7 @@ export default function Home() {
               {[
                 { icon: <Sparkles className="w-5 h-5" />, label: t.mission.free, color: "#F28C38" },
                 { icon: <Shield className="w-5 h-5" />, label: t.mission.privacy, color: "#00D8FF" },
-                { icon: <Globe className="w-5 h-5" />, label: t.mission.bilingual, color: "#4CAF50" },
+                { icon: <AsylumIcon size={20} />, label: t.mission.bilingual, color: "#4CAF50" },
               ].map((item, i) => (
                 <div key={i} className="flex items-center gap-2">
                   <span style={{ color: item.color }}>{item.icon}</span>
@@ -551,6 +612,8 @@ function FeatureRow({
   title,
   description,
   features,
+  icon,
+  featureIcons,
 }: {
   direction: "left" | "right";
   screenshot: string;
@@ -560,6 +623,8 @@ function FeatureRow({
   title: string;
   description: string;
   features: string[];
+  icon?: React.ReactNode;
+  featureIcons?: React.ReactNode[];
 }) {
   const isLeft = direction === "left";
 
@@ -580,12 +645,15 @@ function FeatureRow({
       {/* Content */}
       <div className={`${isLeft ? "order-2" : "order-2 lg:order-1"}`}>
         <div className="reveal">
-          <span
-            className="text-sm font-bold tracking-wider uppercase"
-            style={{ color: badgeColor }}
-          >
-            {badge}
-          </span>
+          <div className="flex items-center gap-3 mb-1">
+            {icon && <span className="w-8 h-8">{icon}</span>}
+            <span
+              className="text-sm font-bold tracking-wider uppercase"
+              style={{ color: badgeColor }}
+            >
+              {badge}
+            </span>
+          </div>
           <h3 className="text-2xl lg:text-3xl font-extrabold text-white mt-3 mb-4">
             {title}
           </h3>
@@ -595,11 +663,15 @@ function FeatureRow({
           <ul className="space-y-3">
             {features.map((feat, i) => (
               <li key={i} className="flex items-start gap-3">
-                <div
-                  className="w-5 h-5 rounded-full flex items-center justify-center mt-0.5 shrink-0"
-                  style={{ backgroundColor: `${badgeColor}20` }}
-                >
-                  <ArrowRight className="w-3 h-3" style={{ color: badgeColor }} />
+                <div className="w-6 h-6 flex items-center justify-center mt-0.5 shrink-0">
+                  {featureIcons && featureIcons[i] ? featureIcons[i] : (
+                    <div
+                      className="w-5 h-5 rounded-full flex items-center justify-center"
+                      style={{ backgroundColor: `${badgeColor}20` }}
+                    >
+                      <ArrowRight className="w-3 h-3" style={{ color: badgeColor }} />
+                    </div>
+                  )}
                 </div>
                 <span className="text-white/80 text-sm">{feat}</span>
               </li>
