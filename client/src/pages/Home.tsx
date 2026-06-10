@@ -321,9 +321,36 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <div className="reveal">
-                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#00D8FF]/10 border border-[#00D8FF]/20 mb-6">
-                  <Sparkles className="w-3.5 h-3.5 text-[#00D8FF]" />
-                  <span className="text-xs font-semibold text-[#00D8FF] tracking-wide">{t.hero.badge}</span>
+                <style>{`
+                  @keyframes shimmer {
+                    0% { background-position: -1000px 0; }
+                    100% { background-position: 1000px 0; }
+                  }
+                  @keyframes pulse-glow {
+                    0%, 100% { box-shadow: 0 0 20px rgba(0, 216, 255, 0.3), inset 0 0 20px rgba(0, 216, 255, 0.1); }
+                    50% { box-shadow: 0 0 40px rgba(0, 216, 255, 0.6), inset 0 0 30px rgba(0, 216, 255, 0.2); }
+                  }
+                  @keyframes float-up {
+                    0% { opacity: 0; transform: translateY(10px); }
+                    100% { opacity: 1; transform: translateY(0); }
+                  }
+                  .tagline-badge {
+                    animation: float-up 0.8s ease-out, pulse-glow 3s ease-in-out infinite;
+                    background: linear-gradient(90deg, rgba(0, 216, 255, 0.1) 0%, rgba(0, 216, 255, 0.2) 50%, rgba(0, 216, 255, 0.1) 100%);
+                    background-size: 200% 100%;
+                  }
+                  .tagline-text {
+                    background: linear-gradient(90deg, #00D8FF, #00A8CC, #00D8FF);
+                    background-size: 200% 100%;
+                    animation: shimmer 3s linear infinite;
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    background-clip: text;
+                  }
+                `}</style>
+                <div className="tagline-badge inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#00D8FF]/30 mb-6">
+                  <Sparkles className="w-3.5 h-3.5 text-[#00D8FF] animate-spin" style={{animationDuration: '3s'}} />
+                  <span className="tagline-text text-xs font-semibold tracking-wide">{t.hero.badge}</span>
                 </div>
               </div>
               <h1 className="reveal text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-[1.1] mb-6">
