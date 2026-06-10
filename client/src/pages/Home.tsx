@@ -240,53 +240,78 @@ export default function Home() {
         </div>
 
         <div className="container relative z-10">
-          {/* Opening Message */}
-          {/* Opening Message - Handwriting Style with Light Effect */}
-          <div className="reveal mb-20 max-w-4xl mx-auto">
-            <div className="relative">
-              {/* Glow effect background */}
-              <div className="absolute inset-0 bg-gradient-to-r from-[#00D8FF]/5 via-[#00D8FF]/10 to-[#00D8FF]/5 blur-3xl rounded-3xl" />
+          {/* Opening Message - Premium Animated Design */}
+          <div className="reveal mb-24 max-w-5xl mx-auto">
+            <style>{`
+              @keyframes slideInUp {
+                from { opacity: 0; transform: translateY(30px); }
+                to { opacity: 1; transform: translateY(0); }
+              }
+              @keyframes fadeInScale {
+                from { opacity: 0; transform: scale(0.95); }
+                to { opacity: 1; transform: scale(1); }
+              }
+              @keyframes shimmer {
+                0%, 100% { opacity: 0.5; }
+                50% { opacity: 1; }
+              }
+              .opening-card {
+                animation: fadeInScale 0.8s ease-out;
+              }
+              .opening-line {
+                animation: slideInUp 0.6s ease-out forwards;
+              }
+              .opening-line:nth-child(1) { animation-delay: 0.1s; }
+              .opening-line:nth-child(2) { animation-delay: 0.3s; }
+              .opening-line:nth-child(3) { animation-delay: 0.5s; }
+              .opening-line:nth-child(4) { animation-delay: 0.7s; }
+            `}</style>
+            
+            <div className="opening-card relative group">
+              {/* Animated gradient border */}
+              <div className="absolute inset-0 bg-gradient-to-r from-[#00D8FF]/30 via-[#F28C38]/20 to-[#00D8FF]/30 rounded-2xl blur opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               
-              <div className="relative px-8 md:px-12 py-12 md:py-16">
+              {/* Glass card background */}
+              <div className="relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl px-8 md:px-12 py-10 md:py-14 overflow-hidden">
+                {/* Animated background elements */}
+                <div className="absolute top-0 right-0 w-96 h-96 bg-[#00D8FF]/5 rounded-full blur-3xl -z-10" />
+                <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#F28C38]/5 rounded-full blur-3xl -z-10" />
+                
                 {lang === 'ar' ? (
-                  <div className="space-y-6 text-right" dir="rtl">
-                    <div className="space-y-8">
-                      <p className="text-2xl md:text-3xl text-white/95 leading-relaxed" style={{fontFamily: "'Caveat', cursive", fontWeight: 600, textShadow: '0 0 20px rgba(0, 216, 255, 0.3)'}}>
-                        {t.opening.line1}
-                      </p>
-                      
-                      <p className="text-4xl md:text-5xl text-[#00D8FF]" style={{fontFamily: "'Caveat', cursive", fontWeight: 700, textShadow: '0 0 30px rgba(0, 216, 255, 0.5)'}}>
-                        {t.opening.line2}
-                      </p>
-                      
-                      <p className="text-2xl md:text-3xl text-white/95 leading-relaxed" style={{fontFamily: "'Caveat', cursive", fontWeight: 600, textShadow: '0 0 20px rgba(0, 216, 255, 0.3)'}}>
-                        {t.opening.line3}
-                      </p>
-                      
-                      <p className="text-2xl md:text-3xl text-[#F28C38]" style={{fontFamily: "'Caveat', cursive", fontWeight: 700, textShadow: '0 0 25px rgba(242, 140, 56, 0.4)'}}>
-                        {t.opening.line4}
-                      </p>
-                    </div>
+                  <div className="space-y-5 text-right" dir="rtl">
+                    <p className="opening-line text-lg md:text-xl text-white/85 leading-relaxed font-light">
+                      {t.opening.line1}
+                    </p>
+                    
+                    <p className="opening-line text-2xl md:text-3xl font-bold bg-gradient-to-l from-[#00D8FF] to-[#00A8CC] bg-clip-text text-transparent">
+                      {t.opening.line2}
+                    </p>
+                    
+                    <p className="opening-line text-lg md:text-xl text-white/85 leading-relaxed font-light">
+                      {t.opening.line3}
+                    </p>
+                    
+                    <p className="opening-line text-lg md:text-xl font-semibold bg-gradient-to-l from-[#F28C38] to-[#FFB347] bg-clip-text text-transparent italic">
+                      {t.opening.line4}
+                    </p>
                   </div>
                 ) : (
-                  <div className="space-y-6 text-left">
-                    <div className="space-y-8">
-                      <p className="text-2xl md:text-3xl text-white/95 leading-relaxed" style={{fontFamily: "'Caveat', cursive", fontWeight: 600, textShadow: '0 0 20px rgba(0, 216, 255, 0.3)'}}>
-                        {t.opening.line1}
-                      </p>
-                      
-                      <p className="text-4xl md:text-5xl text-[#00D8FF]" style={{fontFamily: "'Caveat', cursive", fontWeight: 700, textShadow: '0 0 30px rgba(0, 216, 255, 0.5)'}}>
-                        This is where Jisr comes in.
-                      </p>
-                      
-                      <p className="text-2xl md:text-3xl text-white/95 leading-relaxed" style={{fontFamily: "'Caveat', cursive", fontWeight: 600, textShadow: '0 0 20px rgba(0, 216, 255, 0.3)'}}>
-                        {t.opening.line3}
-                      </p>
-                      
-                      <p className="text-2xl md:text-3xl text-[#F28C38]" style={{fontFamily: "'Caveat', cursive", fontWeight: 700, textShadow: '0 0 25px rgba(242, 140, 56, 0.4)'}}>
-                        {t.opening.line4}
-                      </p>
-                    </div>
+                  <div className="space-y-5 text-left">
+                    <p className="opening-line text-lg md:text-xl text-white/85 leading-relaxed font-light">
+                      {t.opening.line1}
+                    </p>
+                    
+                    <p className="opening-line text-2xl md:text-3xl font-bold bg-gradient-to-r from-[#00D8FF] to-[#00A8CC] bg-clip-text text-transparent">
+                      This is where Jisr comes in.
+                    </p>
+                    
+                    <p className="opening-line text-lg md:text-xl text-white/85 leading-relaxed font-light">
+                      {t.opening.line3}
+                    </p>
+                    
+                    <p className="opening-line text-lg md:text-xl font-semibold bg-gradient-to-r from-[#F28C38] to-[#FFB347] bg-clip-text text-transparent italic">
+                      {t.opening.line4}
+                    </p>
                   </div>
                 )}
               </div>
