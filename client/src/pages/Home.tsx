@@ -241,58 +241,55 @@ export default function Home() {
 
         <div className="container relative z-10">
           {/* Opening Message */}
-          {/* Opening Message - Elegant Minimal Design */}
+          {/* Opening Message - Handwriting Style with Light Effect */}
           <div className="reveal mb-20 max-w-4xl mx-auto">
             <div className="relative">
-              {/* Subtle top accent line */}
-              <div className="absolute -top-4 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#00D8FF]/40 to-transparent" />
+              {/* Glow effect background */}
+              <div className="absolute inset-0 bg-gradient-to-r from-[#00D8FF]/5 via-[#00D8FF]/10 to-[#00D8FF]/5 blur-3xl rounded-3xl" />
               
-              <div className="px-8 md:px-12 py-12 md:py-16">
+              <div className="relative px-8 md:px-12 py-12 md:py-16">
                 {lang === 'ar' ? (
                   <div className="space-y-6 text-right" dir="rtl">
-                    <div className="space-y-6">
-                      <p className="text-lg md:text-xl text-white/90 leading-relaxed font-light">
+                    <div className="space-y-8">
+                      <p className="text-2xl md:text-3xl text-white/95 leading-relaxed" style={{fontFamily: "'Caveat', cursive", fontWeight: 600, textShadow: '0 0 20px rgba(0, 216, 255, 0.3)'}}>
                         {t.opening.line1}
                       </p>
                       
-                      <p className="text-2xl md:text-3xl text-[#00D8FF] font-bold">
+                      <p className="text-4xl md:text-5xl text-[#00D8FF]" style={{fontFamily: "'Caveat', cursive", fontWeight: 700, textShadow: '0 0 30px rgba(0, 216, 255, 0.5)'}}>
                         {t.opening.line2}
                       </p>
                       
-                      <p className="text-lg md:text-xl text-white/90 leading-relaxed font-light">
+                      <p className="text-2xl md:text-3xl text-white/95 leading-relaxed" style={{fontFamily: "'Caveat', cursive", fontWeight: 600, textShadow: '0 0 20px rgba(0, 216, 255, 0.3)'}}>
                         {t.opening.line3}
                       </p>
                       
-                      <p className="text-lg md:text-xl text-[#F28C38] font-semibold italic">
+                      <p className="text-2xl md:text-3xl text-[#F28C38]" style={{fontFamily: "'Caveat', cursive", fontWeight: 700, textShadow: '0 0 25px rgba(242, 140, 56, 0.4)'}}>
                         {t.opening.line4}
                       </p>
                     </div>
                   </div>
                 ) : (
                   <div className="space-y-6 text-left">
-                    <div className="space-y-6">
-                      <p className="text-lg md:text-xl text-white/90 leading-relaxed font-light">
+                    <div className="space-y-8">
+                      <p className="text-2xl md:text-3xl text-white/95 leading-relaxed" style={{fontFamily: "'Caveat', cursive", fontWeight: 600, textShadow: '0 0 20px rgba(0, 216, 255, 0.3)'}}>
                         {t.opening.line1}
                       </p>
                       
-                      <p className="text-2xl md:text-3xl text-[#00D8FF] font-bold">
+                      <p className="text-4xl md:text-5xl text-[#00D8FF]" style={{fontFamily: "'Caveat', cursive", fontWeight: 700, textShadow: '0 0 30px rgba(0, 216, 255, 0.5)'}}>
                         This is where Jisr comes in.
                       </p>
                       
-                      <p className="text-lg md:text-xl text-white/90 leading-relaxed font-light">
+                      <p className="text-2xl md:text-3xl text-white/95 leading-relaxed" style={{fontFamily: "'Caveat', cursive", fontWeight: 600, textShadow: '0 0 20px rgba(0, 216, 255, 0.3)'}}>
                         {t.opening.line3}
                       </p>
                       
-                      <p className="text-lg md:text-xl text-[#F28C38] font-semibold italic">
+                      <p className="text-2xl md:text-3xl text-[#F28C38]" style={{fontFamily: "'Caveat', cursive", fontWeight: 700, textShadow: '0 0 25px rgba(242, 140, 56, 0.4)'}}>
                         {t.opening.line4}
                       </p>
                     </div>
                   </div>
                 )}
               </div>
-              
-              {/* Subtle bottom accent line */}
-              <div className="absolute -bottom-4 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#00D8FF]/40 to-transparent" />
             </div>
           </div>
 

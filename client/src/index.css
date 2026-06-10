@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap');
 
 @custom-variant dark (&:is(.dark *));
 
@@ -43,6 +44,7 @@
   --font-display: 'Cairo', sans-serif;
   --font-body: 'Cairo', sans-serif;
   --font-arabic: 'Cairo', sans-serif;
+  --font-handwriting: 'Caveat', cursive;
   --color-cyan: oklch(0.75 0.15 200);
   --color-amber: oklch(0.72 0.16 65);
   --color-coral: oklch(0.65 0.2 15);
