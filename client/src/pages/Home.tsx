@@ -249,36 +249,52 @@ export default function Home() {
               
               <div className="px-8 md:px-12 py-12 md:py-16">
                 {lang === 'ar' ? (
-                  <div className="space-y-8 text-right" dir="rtl">
+                  <div className="space-y-6 text-right" dir="rtl">
                     {/* Quote mark */}
                     <div className="flex justify-end">
                       <span className="text-5xl md:text-6xl text-[#00D8FF]/20 font-serif leading-none">\"</span>
                     </div>
                     
-                    <p className="text-xl md:text-2xl text-white/90 leading-relaxed font-light">
-                      {t.opening.line1}
-                    </p>
-                    
-                    <div className="flex justify-end pt-2">
-                      <p className="text-2xl md:text-3xl text-[#00D8FF] font-semibold">
-                        — جِسر
+                    <div className="space-y-6">
+                      <p className="text-lg md:text-xl text-white/90 leading-relaxed font-light">
+                        {t.opening.line1}
+                      </p>
+                      
+                      <p className="text-2xl md:text-3xl text-[#00D8FF] font-bold">
+                        {t.opening.line2}
+                      </p>
+                      
+                      <p className="text-lg md:text-xl text-white/90 leading-relaxed font-light">
+                        {t.opening.line3}
+                      </p>
+                      
+                      <p className="text-lg md:text-xl text-[#F28C38] font-semibold italic">
+                        {t.opening.line4}
                       </p>
                     </div>
                   </div>
                 ) : (
-                  <div className="space-y-8 text-left">
+                  <div className="space-y-6 text-left">
                     {/* Quote mark */}
                     <div className="flex justify-start">
                       <span className="text-5xl md:text-6xl text-[#00D8FF]/20 font-serif leading-none">\"</span>
                     </div>
                     
-                    <p className="text-xl md:text-2xl text-white/90 leading-relaxed font-light">
-                      {t.opening.line1}
-                    </p>
-                    
-                    <div className="flex justify-start pt-2">
-                      <p className="text-2xl md:text-3xl text-[#00D8FF] font-semibold">
-                        — Jisr
+                    <div className="space-y-6">
+                      <p className="text-lg md:text-xl text-white/90 leading-relaxed font-light">
+                        {t.opening.line1}
+                      </p>
+                      
+                      <p className="text-2xl md:text-3xl text-[#00D8FF] font-bold">
+                        This is where Jisr comes in.
+                      </p>
+                      
+                      <p className="text-lg md:text-xl text-white/90 leading-relaxed font-light">
+                        {t.opening.line3}
+                      </p>
+                      
+                      <p className="text-lg md:text-xl text-[#F28C38] font-semibold italic">
+                        {t.opening.line4}
                       </p>
                     </div>
                   </div>
