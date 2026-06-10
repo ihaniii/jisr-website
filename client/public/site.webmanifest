@@ -1,0 +1,37 @@
+{
+  "name": "Jisr - Connecting Hearts, Building Futures",
+  "short_name": "Jisr",
+  "description": "Jisr is a comprehensive platform connecting refugees and asylum seekers with resources, community support, and information across 8+ countries.",
+  "icons": [
+    {
+      "src": "/favicon-32x32.png?v=2",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-64x64.png?v=2",
+      "sizes": "64x64",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-128x128.png?v=2",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#0f172a",
+  "background_color": "#0f172a",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/"
+}
