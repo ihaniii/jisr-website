@@ -322,9 +322,18 @@ export default function Home() {
             <div>
               <div className="reveal">
                 <style>{`
-                  @keyframes shimmer {
-                    0% { background-position: -1000px 0; }
-                    100% { background-position: 1000px 0; }
+                  @keyframes circularShimmer {
+                    0% { 
+                      background-position: 0% 50%;
+                      box-shadow: 0 0 0 0 rgba(0, 216, 255, 0.7), inset 0 0 0 0 rgba(0, 216, 255, 0.2);
+                    }
+                    50% { 
+                      box-shadow: 0 0 30px 15px rgba(0, 216, 255, 0.3), inset 0 0 30px 10px rgba(0, 216, 255, 0.3);
+                    }
+                    100% { 
+                      background-position: 100% 50%;
+                      box-shadow: 0 0 0 0 rgba(0, 216, 255, 0), inset 0 0 0 0 rgba(0, 216, 255, 0);
+                    }
                   }
                   @keyframes pulse-glow {
                     0%, 100% { box-shadow: 0 0 20px rgba(0, 216, 255, 0.3), inset 0 0 20px rgba(0, 216, 255, 0.1); }
@@ -335,22 +344,23 @@ export default function Home() {
                     100% { opacity: 1; transform: translateY(0); }
                   }
                   .tagline-badge {
-                    animation: float-up 0.8s ease-out, pulse-glow 3s ease-in-out infinite;
+                    animation: float-up 0.8s ease-out, circularShimmer 3s ease-in-out infinite;
                     background: linear-gradient(90deg, rgba(0, 216, 255, 0.1) 0%, rgba(0, 216, 255, 0.2) 50%, rgba(0, 216, 255, 0.1) 100%);
                     background-size: 200% 100%;
+                    position: relative;
                   }
                   .tagline-text {
                     background: linear-gradient(90deg, #00D8FF, #00A8CC, #00D8FF);
                     background-size: 200% 100%;
-                    animation: shimmer 3s linear infinite;
+                    animation: circularShimmer 3s ease-in-out infinite;
                     -webkit-background-clip: text;
                     -webkit-text-fill-color: transparent;
                     background-clip: text;
                   }
                 `}</style>
-                <div className="tagline-badge inline-flex items-center gap-3 px-5 py-2 rounded-full border border-[#00D8FF]/30 mb-6">
-                  <Sparkles className="w-4 h-4 text-[#00D8FF] animate-spin" style={{animationDuration: '3s'}} />
-                  <span className="tagline-text text-sm font-semibold tracking-wide">{t.hero.badge}</span>
+                <div className="tagline-badge inline-flex items-center gap-4 px-8 py-3 rounded-full border border-[#00D8FF]/30 mb-6">
+                  <Sparkles className="w-5 h-5 text-[#00D8FF] animate-spin" style={{animationDuration: '3s'}} />
+                  <span className="tagline-text text-base font-semibold tracking-wide">{t.hero.badge}</span>
                 </div>
               </div>
               <h1 className="reveal text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-[1.1] mb-6">
