@@ -322,35 +322,84 @@ export default function Home() {
             <div>
               <div className="reveal">
                 <style>{`
-                  @keyframes shimmer {
-                    0% { background-position: -1000px 0; }
-                    100% { background-position: 1000px 0; }
+                  @keyframes floatBounce {
+                    0%, 100% { transform: translateY(0px) rotateX(0deg); }
+                    25% { transform: translateY(-12px) rotateX(8deg); }
+                    50% { transform: translateY(-18px) rotateX(0deg); }
+                    75% { transform: translateY(-12px) rotateX(-8deg); }
                   }
-                  @keyframes pulse-glow {
-                    0%, 100% { box-shadow: 0 0 20px rgba(0, 216, 255, 0.3), inset 0 0 20px rgba(0, 216, 255, 0.1); }
-                    50% { box-shadow: 0 0 40px rgba(0, 216, 255, 0.6), inset 0 0 30px rgba(0, 216, 255, 0.2); }
+                  @keyframes magneticPulse {
+                    0%, 100% { box-shadow: 0 0 30px rgba(0, 216, 255, 0.4), 0 0 60px rgba(0, 168, 204, 0.2), inset 0 0 30px rgba(0, 216, 255, 0.1); }
+                    50% { box-shadow: 0 0 60px rgba(0, 216, 255, 0.8), 0 0 120px rgba(0, 168, 204, 0.5), inset 0 0 60px rgba(0, 216, 255, 0.3); }
                   }
-                  @keyframes float-up {
-                    0% { opacity: 0; transform: translateY(10px); }
-                    100% { opacity: 1; transform: translateY(0); }
+                  @keyframes textGradientFlow {
+                    0% { background-position: 0% center; }
+                    100% { background-position: 200% center; }
                   }
-                  .tagline-badge {
-                    animation: float-up 0.8s ease-out, pulse-glow 3s ease-in-out infinite;
-                    background: linear-gradient(90deg, rgba(0, 216, 255, 0.1) 0%, rgba(0, 216, 255, 0.2) 50%, rgba(0, 216, 255, 0.1) 100%);
-                    background-size: 200% 100%;
+                  @keyframes shimmerWave {
+                    0% { background-position: -200% center; }
+                    100% { background-position: 200% center; }
                   }
-                  .tagline-text {
-                    background: linear-gradient(90deg, #00D8FF, #00A8CC, #00D8FF);
-                    background-size: 200% 100%;
-                    animation: shimmer 3s linear infinite;
+                  .epic-tagline {
+                    position: relative;
+                    padding: 18px 32px;
+                    font-size: 18px;
+                    font-weight: 800;
+                    letter-spacing: 1.5px;
+                    animation: floatBounce 5s cubic-bezier(0.34, 1.56, 0.64, 1) infinite, magneticPulse 4s ease-in-out infinite;
+                    background: linear-gradient(135deg, #00D8FF 0%, #00A8CC 25%, #0088AA 50%, #00A8CC 75%, #00D8FF 100%);
+                    background-size: 200% 200%;
                     -webkit-background-clip: text;
                     -webkit-text-fill-color: transparent;
                     background-clip: text;
+                    border: 2.5px solid;
+                    border-image: linear-gradient(135deg, #00D8FF, #00A8CC, #0088AA) 1;
+                    border-radius: 60px;
+                    backdrop-filter: blur(12px);
+                    overflow: hidden;
+                  }
+                  .epic-tagline::before {
+                    content: '';
+                    position: absolute;
+                    top: -50%;
+                    left: -50%;
+                    width: 200%;
+                    height: 200%;
+                    background: radial-gradient(circle, rgba(0, 216, 255, 0.4) 0%, transparent 70%);
+                    animation: shimmerWave 3s linear infinite;
+                    pointer-events: none;
+                    z-index: 1;
+                  }
+                  .epic-tagline::after {
+                    content: '';
+                    position: absolute;
+                    inset: 0;
+                    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+                    animation: shimmerWave 2s linear infinite;
+                    pointer-events: none;
+                    z-index: 2;
+                  }
+                  .epic-tagline-icon {
+                    display: inline-block;
+                    animation: floatBounce 5s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+                    filter: drop-shadow(0 0 15px rgba(0, 216, 255, 0.8));
+                    position: relative;
+                    z-index: 3;
+                  }
+                  .epic-tagline-text {
+                    position: relative;
+                    z-index: 3;
+                    background: linear-gradient(90deg, #00D8FF, #00A8CC, #0088AA, #00A8CC, #00D8FF);
+                    background-size: 200% 100%;
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    background-clip: text;
+                    animation: textGradientFlow 5s linear infinite;
                   }
                 `}</style>
-                <div className="tagline-badge inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#00D8FF]/30 mb-6">
-                  <Sparkles className="w-3.5 h-3.5 text-[#00D8FF] animate-spin" style={{animationDuration: '3s'}} />
-                  <span className="tagline-text text-xs font-semibold tracking-wide">{t.hero.badge}</span>
+                <div className="epic-tagline inline-flex items-center gap-4 px-8 py-4 rounded-full mb-8 relative">
+                  <Sparkles className="epic-tagline-icon w-6 h-6" />
+                  <span className="epic-tagline-text text-lg font-bold tracking-wider">{t.hero.badge}</span>
                 </div>
               </div>
               <h1 className="reveal text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-[1.1] mb-6">
