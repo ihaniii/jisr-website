@@ -128,11 +128,14 @@ export default function Home() {
         }`}
       >
         <div className="container flex items-center justify-between h-16 md:h-20">
-          <div className="flex items-center gap-2.5">
-            <img src={APP_LOGO} alt="Jisr logo" className="w-15 h-15 shadow-lg shadow-[#00D8FF]/20" />
-            <div className="flex flex-col">
-              <span className="text-xl font-bold text-foreground leading-none">Jisr</span>
-              <span className="text-xs font-semibold text-[#00D8FF] leading-none">جسر</span>
+          <div className="flex items-center gap-3">
+            {/* Logo with badge-style design like Netflix/Facebook */}
+            <div className="flex items-center gap-2.5 px-3 py-1.5 rounded-full border border-[#00D8FF]/30 bg-gradient-to-r from-[#00D8FF]/10 to-[#F28C38]/10 backdrop-blur-sm hover:border-[#00D8FF]/60 transition-all duration-300">
+              <img src={APP_LOGO} alt="Jisr logo" className="w-8 h-8 rounded-full shadow-lg shadow-[#00D8FF]/30" />
+              <div className="flex flex-col">
+                <span className="text-sm font-bold text-white leading-none">Jisr</span>
+                <span className="text-xs font-semibold text-[#00D8FF] leading-none">جسر</span>
+              </div>
             </div>
           </div>
 
