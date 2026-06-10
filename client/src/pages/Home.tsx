@@ -129,7 +129,7 @@ export default function Home() {
       >
         <div className="container flex items-center justify-between h-16 md:h-20">
           <div className="flex items-center gap-2.5">
-            <img src={APP_LOGO} alt="Jisr logo" className="w-15 h-15 shadow-lg shadow-[#00D8FF]/20" />
+            <img src={APP_LOGO} alt="Jisr logo" className="w-15 h-15 shadow-lg shadow-[#00D8FF]/20 rounded-2xl" />
             <div className="flex flex-col">
               <span className="text-xl font-bold text-foreground leading-none">Jisr</span>
               <span className="text-xs font-semibold text-[#00D8FF] leading-none">جسر</span>
