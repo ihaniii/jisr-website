@@ -250,11 +250,6 @@ export default function Home() {
               <div className="px-8 md:px-12 py-12 md:py-16">
                 {lang === 'ar' ? (
                   <div className="space-y-6 text-right" dir="rtl">
-                    {/* Quote mark */}
-                    <div className="flex justify-end">
-                      <span className="text-5xl md:text-6xl text-[#00D8FF]/20 font-serif leading-none">\"</span>
-                    </div>
-                    
                     <div className="space-y-6">
                       <p className="text-lg md:text-xl text-white/90 leading-relaxed font-light">
                         {t.opening.line1}
@@ -275,11 +270,6 @@ export default function Home() {
                   </div>
                 ) : (
                   <div className="space-y-6 text-left">
-                    {/* Quote mark */}
-                    <div className="flex justify-start">
-                      <span className="text-5xl md:text-6xl text-[#00D8FF]/20 font-serif leading-none">\"</span>
-                    </div>
-                    
                     <div className="space-y-6">
                       <p className="text-lg md:text-xl text-white/90 leading-relaxed font-light">
                         {t.opening.line1}
