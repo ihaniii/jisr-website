@@ -321,28 +321,9 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <div className="reveal">
-                <style>{`
-                  @keyframes float-up {
-                    0% { opacity: 0; transform: translateY(10px); }
-                    100% { opacity: 1; transform: translateY(0); }
-                  }
-                  .tagline-badge {
-                    animation: float-up 0.8s ease-out;
-                    background: linear-gradient(90deg, rgba(0, 216, 255, 0.1) 0%, rgba(0, 216, 255, 0.2) 50%, rgba(0, 216, 255, 0.1) 100%);
-                    background-size: 200% 100%;
-                    position: relative;
-                  }
-                  .tagline-text {
-                    background: linear-gradient(90deg, #00D8FF, #00A8CC, #00D8FF);
-                    background-size: 200% 100%;
-                    -webkit-background-clip: text;
-                    -webkit-text-fill-color: transparent;
-                    background-clip: text;
-                  }
-                `}</style>
-                <div className="tagline-badge inline-flex items-center gap-4 px-8 py-3 rounded-full border border-[#00D8FF]/30 mb-6">
-                  <Sparkles className="w-5 h-5 text-[#00D8FF] animate-spin" style={{animationDuration: '3s'}} />
-                  <span className="tagline-text text-base font-semibold tracking-wide">{t.hero.badge}</span>
+                <div className="inline-flex items-center gap-4 px-8 py-3 rounded-full border border-[#00D8FF]/30 mb-6">
+                  <Sparkles className="w-5 h-5 text-[#00D8FF]" />
+                  <span className="text-base font-semibold tracking-wide text-[#00D8FF]">{t.hero.badge}</span>
                 </div>
               </div>
               <h1 className="reveal text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-[1.1] mb-6">
