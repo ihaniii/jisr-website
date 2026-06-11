@@ -8,7 +8,7 @@
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useState, useEffect } from "react";
-import { FlyingLetters } from "@/components/FlyingLetters";
+
 import {
   Shield,
   ArrowRight,
@@ -324,7 +324,7 @@ export default function Home() {
               <div className="reveal">
                 <div className="inline-flex items-center gap-4 px-8 py-3 rounded-full border border-[#00D8FF]/30 mb-6">
                   <Sparkles className="w-5 h-5 text-[#00D8FF]" />
-                  <FlyingLetters text={t.hero.badge} className="text-base font-semibold tracking-wide text-[#00D8FF]" />
+                  <span className="text-base font-semibold tracking-wide text-[#00D8FF]">{t.hero.badge}</span>
                 </div>
               </div>
               <h1 className="reveal text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-[1.1] mb-6">
