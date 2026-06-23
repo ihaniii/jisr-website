@@ -136,7 +136,7 @@ export const translations = {
       appStoreLabel: "Download on the",
       googlePlay: "Google Play",
       googlePlayLabel: "Get it on",
-      comingSoon: "Coming Soon",
+      comingSoon: "Available Now",
     },
     mission: {
       badge: "Our Mission",
@@ -274,7 +274,7 @@ export const translations = {
       appStoreLabel: "حمّل من",
       googlePlay: "Google Play",
       googlePlayLabel: "احصل عليه من",
-      comingSoon: "قريباً",
+      comingSoon: "متاح الآن على App Store",
     },
     mission: {
       badge: "مهمتنا",
